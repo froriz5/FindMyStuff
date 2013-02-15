@@ -1,4 +1,3 @@
-package edu.gatech.oad.antlab.person;
 
 /**
  *  A simple class for person 1
@@ -9,6 +8,11 @@ package edu.gatech.oad.antlab.person;
  *  @version 1.1
  */
 public class Person1 {
+
+  public static void main(String[] args) {
+    System.out.println(new Person1("gtg123b").toString("gtg123b"));
+  }
+
   /** Holds the persons real name */
   private String name;
   	/**
@@ -30,8 +34,8 @@ public class Person1 {
 	 * @return the modified string
 	 */
 	private String calc(String input) {
-	  //Person 1 put your implementation here
-	  return null;
+      int numToRotate = 2;
+	  return input.substring(numToRotate) + input.substring(0, numToRotate);
 	}
 	
 	/**
