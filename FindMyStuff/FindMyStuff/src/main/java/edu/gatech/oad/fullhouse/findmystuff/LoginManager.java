@@ -9,7 +9,7 @@ public class LoginManager {
 	private static LoginManager instance;
 	private UserAccessor accessor;
 	
-	public void newUser(String usern, String passw, Location loc, boolean admin, String email, String phone) {
+	public void newUser(String usern, String passw, String loc, boolean admin, String email, String phone) {
 		accessor.addUser(User.newUser(usern, passw, loc, admin, email, phone));
 	}
 	
