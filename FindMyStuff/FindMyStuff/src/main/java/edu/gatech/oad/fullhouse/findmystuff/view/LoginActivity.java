@@ -1,14 +1,18 @@
 package edu.gatech.oad.fullhouse.findmystuff.view;
 
-import edu.gatech.oad.fullhouse.findmystuff.R;
-import edu.gatech.oad.fullhouse.findmystuff.R.layout;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
+import edu.gatech.oad.fullhouse.findmystuff.R;
+import edu.gatech.oad.fullhouse.findmystuff.pres.LoginPresenter;
 
 public class LoginActivity extends Activity {
 
     private static String TAG = "FindMyStuff";
+    private LoginPresenter presenter;
 
     /**
      * Called when the activity is first created.
@@ -21,7 +25,30 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "onCreate");
         setContentView(R.layout.main);
+        presenter = new LoginPresenter(this);
+    }
+    
+    public void register(View v) {
+    	Intent intent = new Intent(this, RegisterActivity.class);
+    	startActivity(intent);
+    }
+    
+    public void loginAttempt(View v) {
+    	String username = ((TextView)findViewById(R.id.usernameText)).getText().toString();
+        String password = ((TextView)findViewById(R.id.passwordText)).getText().toString();
+        presenter.checkPassword(username, password);
+    }
+    
+    public void login() {
+    	// TODO
+    }
+    
+    public void displayLockedError() {
+    	// TODO
+    }
+    
+    public void displayPasswordError() {
+    	// TODO
     }
 
 }
-
