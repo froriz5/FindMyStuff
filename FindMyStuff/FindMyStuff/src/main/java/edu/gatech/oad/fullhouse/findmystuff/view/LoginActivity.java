@@ -1,6 +1,7 @@
-package edu.gatech.oad.fullhouse.findmystuff;
+package edu.gatech.oad.fullhouse.findmystuff.view;
 
 import edu.gatech.oad.fullhouse.findmystuff.R;
+import edu.gatech.oad.fullhouse.findmystuff.R.layout;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;

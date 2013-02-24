@@ -1,5 +1,7 @@
 package edu.gatech.oad.fullhouse.findmystuff;
 
+import edu.gatech.oad.fullhouse.findmystuff.model.User;
+import edu.gatech.oad.fullhouse.findmystuff.model.UserAccessor;
 import android.location.Location;
 
 public class LoginManager {
@@ -21,7 +23,7 @@ public class LoginManager {
 	}
 	
 	public void newUser(String usern, String passw, Location loc, boolean admin, String email, String phone) {
-		accessor.addUser(new User(usern, passw, loc, admin, email, phone));
+		accessor.addUser(User.newUser(usern, passw, loc, admin, email, phone));
 	}
 	
 	public boolean checkUsernameT(String username) {

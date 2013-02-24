@@ -1,4 +1,4 @@
-package edu.gatech.oad.fullhouse.findmystuff;
+package edu.gatech.oad.fullhouse.findmystuff.model;
 
 import java.util.Date;
 
@@ -15,16 +15,22 @@ public class User {
 	private String emailAddress;
 	private String phoneNumber;
 	
-	public User(String usern, String passw, Location loc, boolean admin, String email, String phone) {
-		username = usern;
-		password = passw;
-		location = loc;
-		dateJoined = new Date();
-		loginAttempts = 0;
-		isLocked = false;
-		isAdmin = admin;
-		emailAddress = email;
-		phoneNumber = phone;
+	public User() {
+	    
+	}
+
+	public static User newUser(String usern, String passw, Location loc, boolean admin, String email, String phone) {
+	    User user = new User();
+		user.username = usern;
+		user.password = passw;
+		user.location = loc;
+		user.dateJoined = new Date();
+		user.loginAttempts = 0;
+		user.isLocked = false;
+		user.isAdmin = admin;
+		user.emailAddress = email;
+		user.phoneNumber = phone;
+		return user;
 	}
 	
 	public boolean isLocked() {
@@ -46,15 +52,29 @@ public class User {
 	public String getUsername() {
 		return username;
 	}
+	public void setUsername(String username) {
+        this.username = username;
+    }
 	
+	public void setPassword(String password) {
+        this.password = password;
+    }
+
 	public Location getLocation() {
 		return location;
 	}
 	
-	public Date getJoinDate() {
+	public void setLocation(Location location) {
+        this.location = location;
+    }
+	public Date getDateJoined() {
 		return dateJoined;
 	}
-	
+
+	public void setDateJoined(Date dateJoined) {
+        this.dateJoined = dateJoined;
+    }
+
 	public String getEmail() {
 		return emailAddress;
 	}
