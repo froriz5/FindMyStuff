@@ -15,16 +15,23 @@
 	<packaging>apk</packaging>
 	<name>FindMyStuff - Application</name>
 
-	<dependencies>
-		<dependency>
-			<groupId>com.google.android</groupId>
-			<artifactId>android</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>de.akquinet.android.androlog</groupId>
-			<artifactId>androlog</artifactId>
-		</dependency>
-	</dependencies>
+  <dependencies>
+    <dependency>
+      <groupId>com.google.android</groupId>
+      <artifactId>android</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>de.akquinet.android.androlog</groupId>
+      <artifactId>androlog</artifactId>
+    </dependency>
+<!--  Gson: Java to Json conversion -->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.2.2</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
 
 	<build>
 		<plugins>

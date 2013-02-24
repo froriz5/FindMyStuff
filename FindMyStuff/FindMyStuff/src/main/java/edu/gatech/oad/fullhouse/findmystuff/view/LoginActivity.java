@@ -1,11 +1,11 @@
-package edu.gatech.oad.fullhouse.findmystuff;
+package edu.gatech.oad.fullhouse.findmystuff.view;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
+import edu.gatech.oad.fullhouse.findmystuff.R;
 
 public class LoginActivity extends Activity {
 

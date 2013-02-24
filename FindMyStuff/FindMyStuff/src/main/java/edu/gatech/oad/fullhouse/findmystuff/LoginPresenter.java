@@ -17,6 +17,13 @@ public class LoginPresenter {
 		switch(LoginManager.getInstance().checkPassword(username, password)) {
 			case 0:
 				
+				break;
+			case 1:
+				
+				break;
+			case 2:
+				
+				break;
 			
 		}
 	}
