@@ -5,37 +5,40 @@
     android:orientation="vertical" >
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/usernameText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.00"
-        android:layout_marginTop="50dp"
         android:layout_marginBottom="10dp"
-        android:ems="10" 
-        android:text="@string/username">
+        android:layout_marginTop="50dp"
+        android:layout_weight="0.00"
+        android:ems="10"
+        android:text="@string/username" >
+
         <requestFocus />
     </EditText>
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/passwordText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPassword" 
-        android:text="@string/password"/>
+        android:inputType="textPassword"
+        android:text="@string/password" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="50dp"
-        android:text="@string/login" />
+        android:text="@string/login"
+        android:onClick="login" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/registerButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/register" />
+        android:text="@string/register"
+        android:onClick="register" />
 
 </LinearLayout>

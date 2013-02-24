@@ -32,6 +32,9 @@ public class User {
 	}
 	
 	public boolean checkPassword(String attempt) {
+		if (isLocked) {
+			return false;
+		}
 		if (password.equals(attempt)) {
 			loginAttempts = 0;
 			return true;

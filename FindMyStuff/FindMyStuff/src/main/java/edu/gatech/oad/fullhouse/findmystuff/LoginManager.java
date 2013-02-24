@@ -1,9 +1,21 @@
+
 package edu.gatech.oad.fullhouse.findmystuff;
 
 import android.location.Location;
 
 public class LoginManager {
+	private static LoginManager instance;
 	private UserAccessor accessor;
+	
+	private LoginManager() {
+		instance = this;
+	}
+	
+	public static LoginManager getInstance() {
+		if (instance == null)
+			instance = new LoginManager();
+		return instance;
+	}
 	
 	/*
 	 * Returns 0 for invalid username, 1 for incorrect password, 2 for successful login

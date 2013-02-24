@@ -1,9 +1,11 @@
 package edu.gatech.oad.fullhouse.findmystuff;
 
-import edu.gatech.oad.fullhouse.findmystuff.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class LoginActivity extends Activity {
 
@@ -21,6 +23,22 @@ public class LoginActivity extends Activity {
         Log.i(TAG, "onCreate");
         setContentView(R.layout.main);
     }
+    
+    public void register(View v) {
+    	
+    }
+    
+    public void login(View v) {
+    	String username = ((TextView)findViewById(R.id.usernameText)).getText().toString();
+        String password = ((TextView)findViewById(R.id.passwordText)).getText().toString();
+    }
+    
+    public void displayLockedError() {
+    	
+    }
+    
+    public void displayPasswordError() {
+    	
+    }
 
 }
-
