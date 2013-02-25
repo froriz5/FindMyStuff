@@ -45,10 +45,12 @@ public class LoginActivity extends Activity {
     
     public void displayLockedError() {
     	// TODO
+    	((TextView)findViewById(R.id.textViewLockedError)).setVisibility(0);
     }
     
     public void displayPasswordError() {
     	// TODO
+    	((TextView)findViewById(R.id.textViewPasswordError)).setVisibility(0);
     }
 
 }
