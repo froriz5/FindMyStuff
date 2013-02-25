@@ -12,5 +12,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="email">Email</string>
     <string name="re_password">Re-enter Password</string>
+    <string name="locked_error">You have exceeded the login attempt limit. Your account is locked.</string>
+    <string name="password_error">Incorrect username/password combination.</string>
 
 </resources>
