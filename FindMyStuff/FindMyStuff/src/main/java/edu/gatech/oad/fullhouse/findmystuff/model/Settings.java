@@ -1,5 +1,11 @@
 package edu.gatech.oad.fullhouse.findmystuff.model;
 
+/**
+ * 
+ * 
+ * @author Jesse Rosalia
+ *
+ */
 public class Settings {
 
     private static Settings _instance;

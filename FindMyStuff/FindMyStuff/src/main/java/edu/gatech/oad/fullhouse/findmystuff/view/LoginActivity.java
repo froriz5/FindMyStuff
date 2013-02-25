@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import edu.gatech.oad.fullhouse.findmystuff.R;
+import edu.gatech.oad.fullhouse.findmystuff.model.Settings;
 import edu.gatech.oad.fullhouse.findmystuff.pres.LoginPresenter;
 
 public class LoginActivity extends Activity {
@@ -26,6 +27,9 @@ public class LoginActivity extends Activity {
         Log.i(TAG, "onCreate");
         setContentView(R.layout.main);
         presenter = new LoginPresenter(this);
+        
+        //NOTE: change this to your own ip...eventually, we'll stand up a global server
+        Settings.instance().setServerUrl("http://128.61.59.209:3000");
     }
     
     public void register(View v) {
@@ -36,10 +40,10 @@ public class LoginActivity extends Activity {
     public void loginAttempt(View v) {
     	String username = ((TextView)findViewById(R.id.usernameText)).getText().toString();
         String password = ((TextView)findViewById(R.id.passwordText)).getText().toString();
-        presenter.checkPassword(username, password);
+        presenter.login(username, password);
     }
     
-    public void login() {
+    public void doLogin() {
     	// TODO
     }
     

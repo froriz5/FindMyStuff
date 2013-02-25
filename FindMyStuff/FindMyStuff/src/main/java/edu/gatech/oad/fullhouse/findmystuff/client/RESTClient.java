@@ -7,7 +7,11 @@ import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import com.google.gson.Gson;
 
@@ -16,7 +20,7 @@ import edu.gatech.oad.fullhouse.findmystuff.model.Settings;
 /**
  * A simple client to manipulate a REST resource on a server
  * 
- * @author thejenix
+ * @author Jesse Rosalia
  *
  * @param <T>
  */
@@ -37,14 +41,20 @@ public class RESTClient<T> {
 //    }
 //
     private Class<T> objectClass;
-    private String query;
+    private String resource;
 
     public RESTClient(Class<T> objectClass) {
-        this(objectClass, getDefaultQueryName(objectClass));
+        this(objectClass, getDefaultResourceName(objectClass));
         
     }
 
-    private static String getDefaultQueryName(Class<?> clazz) {
+    /**
+     * Helper method to get the most likely resource name, given the class.
+     * 
+     * @param clazz
+     * @return
+     */
+    private static String getDefaultResourceName(Class<?> clazz) {
         String name = clazz.getSimpleName();
         StringBuilder builder = new StringBuilder();
         for (int ii = 0; ii < name.length(); ii++) {
@@ -64,19 +74,21 @@ public class RESTClient<T> {
         return builder.toString();
     }
 
-    public RESTClient(Class<T> objectClass, String query) {
+    public RESTClient(Class<T> objectClass, String resource) {
         this.objectClass = objectClass;
-        this.query       = query;
+        this.resource    = resource;
     }
 
     public T get(long id) {
-        String json = doGet(id);
+        Map<String, String> params = new HashMap<String, String>();
+        String json = doGet(Long.toString(id), params);
         Gson gson = new Gson();
         return gson.fromJson(json, this.objectClass);
     }
 
     public List<T> list() {
-        String json = doGet(null);
+        Map<String, String> params = new HashMap<String, String>();
+        String json = doGet(null, params);
         Gson gson = new Gson();
         T[] array = (T[]) Array.newInstance(objectClass, 0);
         T[] objects = (T[]) gson.fromJson(json, array.getClass());
@@ -97,13 +109,24 @@ public class RESTClient<T> {
         throw new UnsupportedOperationException("NYI");
     }
 
-    private String doGet(Long id) {
+    /**
+     * Execute a get request against the remote server.  This uses the resource passed in to
+     * (or figured out in) the constructor, and executes a query with parameters against that resource.
+     * 
+     * @param query
+     * @param params
+     * @return A string containing JSON with the requested data
+     * @throws RuntimeException if there is a problem or the server returns anything other than a HTTP 200
+     */
+    protected String doGet(String query, Map<String, String> params) {
         HttpURLConnection connection = null;
         try {
-            String urlStr = Settings.instance().getServerUrl() + "/" + query + (id != null ? ("/" + id.toString()) : "") + ".json";
-            URL url = new URL(urlStr);
-//            String message = new String("{\"id\":1, \"regId\":\"" + regId
-//                    + "\"}");
+            //construct the query
+            String urlStr = Settings.instance().getServerUrl() + "/" + resource + (query != null ? ("/" + query) : "") + ".json";
+            //construct the params
+            String paramStr = buildParams(params);
+            //put the 2 together into a URL and open the stream
+            URL url = new URL(urlStr + "?" + paramStr);
             connection = (HttpURLConnection) url.openConnection();
             int responseCode = connection.getResponseCode();
             if (responseCode == 200) {
@@ -111,14 +134,6 @@ public class RESTClient<T> {
             } else {
                 throw new IOException("Http response: " + responseCode);
             }
-//            connection.setDoOutput(true);
-//            connection.setRequestMethod("POST");
-//            connection.setRequestProperty("Content-Length",
-//                    Integer.toString(message.length()));
-//            connection.setRequestProperty("Content-Type", "application/json");
-//            connection.getOutputStream().write(message.getBytes());
-//            connection.connect();
-//            connection.getResponseCode();
             // this.retries = 0;
         } catch (IOException ex) {
             // this.retries++;
@@ -132,21 +147,17 @@ public class RESTClient<T> {
         }
     }
     
-    private String inputStreamToString(InputStream inputStream) throws IOException {
-        byte[] buffer = new byte[1024];
-        int bytes = 0;
-        
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        while ((bytes = inputStream.read(buffer)) > 0) {
-            baos.write(buffer, 0, bytes);
-        }
-        return baos.toString();
-    }
-
-    private void doPost(String cmd, String json) {
+    /**
+     * Post a json block to the server.
+     * 
+     * @param cmd
+     * @param json
+     * @throws RuntimeException if there is a problem or the server returns anything other than a HTTP 200
+     */
+    protected void doPost(String cmd, String json) {
         HttpURLConnection connection = null;
         try {
-            URL url = new URL(Settings.instance().getServerUrl() + "/" + query);
+            URL url = new URL(Settings.instance().getServerUrl() + "/" + resource);
             connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setRequestMethod("POST");
@@ -167,5 +178,41 @@ public class RESTClient<T> {
                 connection.disconnect();
             }
         }
+    }
+    
+    /**
+     * Helper method to build a param string for a HTTP GET request
+     * 
+     * @param params
+     * @param ignore
+     * @return
+     */
+    private String buildParams(Map<String, String> params, String ... ignore) {
+        Set<String> ignoreSet = new HashSet<String>(Arrays.asList(ignore));
+        StringBuilder paramsBuilder = new StringBuilder();
+        for (String key : params.keySet()) {
+            
+            if (!ignoreSet.contains(key)) {
+                String val = params.get(key);
+                if (val != null) {
+                    if (paramsBuilder.length() > 0) {
+                        paramsBuilder.append("&");
+                    }
+                    paramsBuilder.append(key).append("=").append(val);
+                }
+            }
+        }
+        return paramsBuilder.toString();
+    }
+
+    private String inputStreamToString(InputStream inputStream) throws IOException {
+        byte[] buffer = new byte[1024];
+        int bytes = 0;
+        
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        while ((bytes = inputStream.read(buffer)) > 0) {
+            baos.write(buffer, 0, bytes);
+        }
+        return baos.toString();
     }
 }
