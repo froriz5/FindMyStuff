@@ -6,6 +6,7 @@ import android.util.Log;
 import edu.gatech.oad.fullhouse.findmystuff.R;
 import edu.gatech.oad.fullhouse.findmystuff.R.layout;
 import edu.gatech.oad.fullhouse.findmystuff.client.RESTClient;
+import edu.gatech.oad.fullhouse.findmystuff.model.ServerUserAccessorImpl;
 import edu.gatech.oad.fullhouse.findmystuff.model.Settings;
 import edu.gatech.oad.fullhouse.findmystuff.model.User;
 
@@ -27,7 +28,7 @@ public class HelloAndroidActivity extends Activity {
         
         //test code
         Settings.instance().setServerUrl("http://128.61.59.209:3000");
-        RESTClient client = new RESTClient(User.class);
+        ServerUserAccessorImpl client = new ServerUserAccessorImpl();
         client.list(); //TODO: problems with empty arrays
         User user = new User();
         user.setUsername("jrosalia");
@@ -35,6 +36,7 @@ public class HelloAndroidActivity extends Activity {
         
         client.create(user);
         
+        client.getUserByUsername("jrosalia");
         client.list();
     }
 }

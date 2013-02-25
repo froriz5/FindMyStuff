@@ -32,6 +32,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    users = User.where(request.query_parameters)
+    if !users.empty?
+      @user = users[0];
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @user }
+      end
+    else
+     # TODO handle errors gracefully...currently, we just raise a 500  
+    end
+  end
+
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
