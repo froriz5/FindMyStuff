@@ -19,7 +19,7 @@ public class LoginActivity extends Activity {
      * Called when the activity is first created.
      * @param savedInstanceState If the activity is being re-initialized after
      * previously being shut down then this Bundle contains the data it most
-     * recently supplied in onSaveInstanceState(Bundle). <b>Note: Otherwise it is null.</b>
+-     * recently supplied in onSaveInstanceState(Bundle). <b>Note: Otherwise it is null.</b>
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,8 @@ public class LoginActivity extends Activity {
     public void loginAttempt(View v) {
     	String username = ((TextView)findViewById(R.id.usernameText)).getText().toString();
         String password = ((TextView)findViewById(R.id.passwordText)).getText().toString();
+        ((TextView)findViewById(R.id.textViewLockedError)).setVisibility(1);
+        ((TextView)findViewById(R.id.textViewPasswordError)).setVisibility(1);
         presenter.login(username, password);
     }
     
