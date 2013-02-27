@@ -55,4 +55,12 @@
         android:text="@string/password_error"
         android:visibility="gone" />
 
+    <TextView
+        android:id="@+id/passwordError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp"
+        android:layout_marginTop="10dp"
+        android:ems="10" />
+
 </LinearLayout>

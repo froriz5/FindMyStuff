@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import edu.gatech.oad.fullhouse.findmystuff.R;
+import edu.gatech.oad.fullhouse.findmystuff.R.string;
 import edu.gatech.oad.fullhouse.findmystuff.model.Settings;
 import edu.gatech.oad.fullhouse.findmystuff.pres.LoginPresenter;
 
@@ -54,6 +55,7 @@ public class LoginActivity extends Activity {
     
     public void displayPasswordError() {
     	// TODO
+    	((TextView)findViewById(R.id.passwordError)).setText("Username/Password incorrect");
     	((TextView)findViewById(R.id.textViewPasswordError)).setVisibility(0);
     }
 
