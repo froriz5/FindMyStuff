@@ -14,37 +14,57 @@ public class RegisterPresenter {
 		accessor = new ServerUserAccessorImpl();
 	}
 	
-	public void checkRegInfon(String usern, String passw, String loc, String email, String phone) {
+	public void checkRegInfo(String usern, String passw, String name, String loc, String email, String phone) {
 		boolean valid = true;
+		
+		if (accessor.getUserByUsername(usern) != null) {
+			activity.displayUsernameTakenError();
+			valid = false;
+		}
+		if (accessor.getUserByEmail(email) != null) {
+			activity.displayEmailTakenError();
+			valid = false;
+		}
+			
+		
 		valid = valid && checkUsername(usern);
 		valid = valid && checkPassword(passw);
+		valid = valid && checkName(name);
 		valid = valid && checkLocation(loc);
 		valid = valid && checkEmail(email);
 		valid = valid && checkPhone(phone);
 		
 		if (valid) {
-			accessor.addUser(User.newUser(usern, passw, loc, false, email, phone));
+			accessor.addUser(User.newUser(usern, passw, name, loc, false, email, phone));
 			activity.finish();
 		}
 	}
 	
+	/*
+	 * These can be changed later for validity checking.
+	 * Return false and call an error display in activity for invalid information.
+	 */
 	public boolean checkUsername(String username) {
-		return false;
+		return true;
 	}
 	
 	public boolean checkPassword(String password) {
-		return false;
+		return true;
+	}
+	
+	public boolean checkName(String name) {
+		return true;
 	}
 	
 	public boolean checkLocation(String loc) {
-		return false;
+		return true;
 	}
 	
 	public boolean checkEmail(String email) {
-		return false;
+		return true;
 	}
 	
 	public boolean checkPhone(String phone) {
-		return false;
+		return true;
 	}
 }
