@@ -34,9 +34,21 @@ public class RegisterActivity extends Activity {
         String password = ((TextView)findViewById(R.id.editTextPassword)).getText().toString();
         String repassword = ((TextView)findViewById(R.id.editTextRePassword)).getText().toString();
         if(password.equals(repassword)){
-        	presenter.checkRegInfon(username, password, "", email, "");
-        } else{
-        	// TODO display password mismatch error
+        	presenter.checkRegInfo(username, password, "Name", "Location", email, "Phone");
+        } else {
+        	displayPasswordMismatchError();
         }
     }
+	
+	public void displayUsernameTakenError() {
+		
+	}
+	
+	public void displayEmailTakenError() {
+		
+	}
+	
+	public void displayPasswordMismatchError() {
+		
+	}
 }

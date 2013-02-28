@@ -7,6 +7,7 @@ import android.location.Location;
 public class User {
 	private String username;
 	private String password;
+	private String name;
 	private String location;
 	private Date dateJoined;
 	private int loginAttempts;
@@ -19,10 +20,11 @@ public class User {
 	    
 	}
 
-	public static User newUser(String usern, String passw, String loc, boolean admin, String email, String phone) {
+	public static User newUser(String usern, String passw, String name, String loc, boolean admin, String email, String phone) {
 	    User user = new User();
 		user.username = usern;
 		user.password = passw;
+		user.name = name;
 		user.location = loc;
 		user.dateJoined = new Date();
 		user.loginAttempts = 0;
@@ -58,6 +60,13 @@ public class User {
 	
 	public void setPassword(String password) {
         this.password = password;
+    }
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+        this.name = name;
     }
 
 	public String getLocation() {
