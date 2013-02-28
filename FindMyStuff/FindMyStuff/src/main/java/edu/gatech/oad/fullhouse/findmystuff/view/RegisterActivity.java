@@ -17,7 +17,7 @@ public class RegisterActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_resgister);
+		setContentView(R.layout.activity_register);
 		presenter = new RegisterPresenter(this);
 	}
 
