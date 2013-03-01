@@ -30,7 +30,7 @@ public class LoginActivity extends Activity {
         presenter = new LoginPresenter(this);
         
         //NOTE: change this to your own ip...eventually, we'll stand up a global server
-        Settings.instance().setServerUrl("http://128.61.59.209:3000");
+        Settings.instance().setServerUrl("http://128.61.59.156:3000");
     }
     
     public void register(View v) {
@@ -41,25 +41,26 @@ public class LoginActivity extends Activity {
     public void loginAttempt(View v) {
     	String username = ((TextView)findViewById(R.id.usernameText)).getText().toString();
         String password = ((TextView)findViewById(R.id.passwordText)).getText().toString();
-        ((TextView)findViewById(R.id.textViewLockedError)).setVisibility(1);
-        ((TextView)findViewById(R.id.textViewPasswordError)).setVisibility(1);
+        ((TextView)findViewById(R.id.textViewLockedError)).setVisibility(View.GONE);
+        ((TextView)findViewById(R.id.textViewPasswordError)).setVisibility(View.GONE);
+        ((TextView)findViewById(R.id.textViewSuccess)).setVisibility(View.GONE);
         presenter.login(username, password);
     }
     
     public void doLogin() {
-    	Intent intent = new Intent(this, DashboardActivity.class);
-    	startActivity(intent);
+        // TODO
+        ((TextView)findViewById(R.id.textViewSuccess)).setVisibility(View.VISIBLE);
     }
     
     public void displayLockedError() {
     	// TODO
-    	((TextView)findViewById(R.id.textViewLockedError)).setVisibility(0);
+    	((TextView)findViewById(R.id.textViewLockedError)).setVisibility(View.VISIBLE);
     }
     
     public void displayPasswordError() {
     	// TODO
-    	((TextView)findViewById(R.id.passwordError)).setText("Username/Password incorrect");
-    	((TextView)findViewById(R.id.textViewPasswordError)).setVisibility(0);
+//    	((TextView)findViewById(R.id.passwordError)).setText("Username/Password incorrect");
+    	((TextView)findViewById(R.id.textViewPasswordError)).setVisibility(View.VISIBLE);
     }
 
 }
