@@ -13,7 +13,7 @@
     <application
         android:icon="@drawable/icon"
         android:label="@string/app_name" >
-        <activity android:name=".view.LoginActivity" >
+        <activity android:name="edu.gatech.oad.fullhouse.findmystuff.view.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,8 +21,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.RegisterActivity"
+            android:name="edu.gatech.oad.fullhouse.findmystuff.view.RegisterActivity"
             android:label="@string/title_activity_register" >
+        </activity>
+        <activity
+            android:name="edu.gatech.oad.fullhouse.findmystuff.DashboardActivity"
+            android:label="@string/title_activity_dashboard" >
         </activity>
     </application>
 

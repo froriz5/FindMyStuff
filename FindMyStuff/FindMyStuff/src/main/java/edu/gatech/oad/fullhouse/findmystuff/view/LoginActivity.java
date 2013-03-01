@@ -47,7 +47,8 @@ public class LoginActivity extends Activity {
     }
     
     public void doLogin() {
-    	// TODO
+    	Intent intent = new Intent(this, DashboardActivity.class);
+    	startActivity(intent);
     }
     
     public void displayLockedError() {

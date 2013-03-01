@@ -87,6 +87,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/linearLayout4"
         android:layout_marginBottom="15dp"
+        android:onClick="registerAttempt"
         android:text="@string/register" />
 
     <LinearLayout

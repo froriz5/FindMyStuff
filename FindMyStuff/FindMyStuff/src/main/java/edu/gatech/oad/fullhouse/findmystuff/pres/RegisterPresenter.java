@@ -1,5 +1,6 @@
 package edu.gatech.oad.fullhouse.findmystuff.pres;
 
+import android.os.AsyncTask;
 import edu.gatech.oad.fullhouse.findmystuff.model.ServerUserAccessorImpl;
 import edu.gatech.oad.fullhouse.findmystuff.model.User;
 import edu.gatech.oad.fullhouse.findmystuff.model.UserAccessor;
@@ -14,8 +15,47 @@ public class RegisterPresenter {
 		accessor = new ServerUserAccessorImpl();
 	}
 	
-	public void checkRegInfo(String usern, String passw, String name, String loc, String email, String phone) {
+	public void checkRegInfo(final String usern, final String passw, final String name, final String loc,
+			final String email, final String phone) {
 		boolean valid = true;
+		
+		valid = valid && checkUsername(usern);
+		valid = valid && checkPassword(passw);
+		valid = valid && checkName(name);
+		valid = valid && checkLocation(loc);
+		valid = valid && checkEmail(email);
+		valid = valid && checkPhone(phone);
+		
+		if (valid) {
+			new AsyncTask<Void, Void, Integer>() {
+				protected Integer doInBackground(Void... params) {
+					try {
+	                    // return 1 for a username taken error if user found
+	                    accessor.getUserByUsername(usern);
+	                    return 1;
+	                } catch (Exception e) { }
+					try {
+						// return 2 for an email taken error if user found
+	                    accessor.getUserByUsername(email);
+	                    return 2;
+	                } catch (Exception e) { }
+					
+					// return 0 for successful user creation
+					accessor.addUser(User.newUser(usern, passw, name, loc, false, email, phone));
+					return 0;
+				}
+				
+				protected void onPostExecute(Integer result) {
+					if (result == 0) {
+						activity.finish();
+					} else if (result == 1) {
+						activity.displayUsernameTakenError();
+					} else if (result == 2) {
+						activity.displayEmailTakenError();
+					}
+				}
+			}.execute();
+		}
 		
 		if (accessor.getUserByUsername(usern) != null) {
 			activity.displayUsernameTakenError();
@@ -25,14 +65,6 @@ public class RegisterPresenter {
 			activity.displayEmailTakenError();
 			valid = false;
 		}
-			
-		
-		valid = valid && checkUsername(usern);
-		valid = valid && checkPassword(passw);
-		valid = valid && checkName(name);
-		valid = valid && checkLocation(loc);
-		valid = valid && checkEmail(email);
-		valid = valid && checkPhone(phone);
 		
 		if (valid) {
 			accessor.addUser(User.newUser(usern, passw, name, loc, false, email, phone));
