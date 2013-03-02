@@ -30,7 +30,7 @@ public class LoginActivity extends Activity {
         presenter = new LoginPresenter(this);
         
         //NOTE: change this to your own ip...eventually, we'll stand up a global server
-        Settings.instance().setServerUrl("http://128.61.59.156:3000");
+        Settings.instance().setServerUrl("http://floating-wildwood-5355.herokuapp.com");
     }
     
     public void register(View v) {
