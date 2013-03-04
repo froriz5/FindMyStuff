@@ -16,5 +16,8 @@
     <string name="password_error">Incorrect username/password combination.</string>
     <string name="title_activity_dashboard">DashboardActivity</string>
     <string name="success">Successful login.</string>
+    <string name="name">Name</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
 
 </resources>

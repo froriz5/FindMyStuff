@@ -29,12 +29,16 @@ public class RegisterActivity extends Activity {
 	}
 
 	public void registerAttempt(View v) {
+		String name = ((TextView)findViewById(R.id.editTextName)).getText().toString();
+		String city = ((TextView)findViewById(R.id.editTextCity)).getText().toString();
+		String state = ((TextView)findViewById(R.id.editTextState)).getText().toString();
+		String location = city + ", " + state;
 		String username = ((TextView)findViewById(R.id.editTextUsername)).getText().toString();
 		String email = ((TextView)findViewById(R.id.editTextEmail)).getText().toString();
         String password = ((TextView)findViewById(R.id.editTextPassword)).getText().toString();
         String repassword = ((TextView)findViewById(R.id.editTextRePassword)).getText().toString();
         if(password.equals(repassword)){
-        	presenter.checkRegInfo(username, password, "Name", "Location", email, "Phone");
+        	presenter.checkRegInfo(username, password, name, location, email, "Phone");
         } else {
         	displayPasswordMismatchError();
         }

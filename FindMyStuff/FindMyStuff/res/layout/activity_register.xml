@@ -1,18 +1,86 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".RegisterActivity" >
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/linearLayout1"
-        android:layout_alignRight="@+id/linearLayout1"
-        android:layout_below="@+id/linearLayout1"
-        android:layout_marginTop="24dp"
-        android:orientation="vertical" >
+        android:id="@+id/LinearLayoutName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textViewName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/name"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName" >
+
+            <requestFocus />
+        </EditText>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayoutCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textViewCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.45"
+            android:text="@string/city"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <EditText
+            android:id="@+id/editTextCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPostalAddress" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayoutState"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textViewState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.70"
+            android:text="@string/state"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <EditText
+            android:id="@+id/editTextState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPostalAddress" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayoutEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
         <TextView
             android:id="@+id/textViewEmail"
@@ -23,21 +91,38 @@
 
         <EditText
             android:id="@+id/editTextEmail"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:ems="10"
             android:inputType="textEmailAddress" />
+
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/linearLayout2"
-        android:layout_alignRight="@+id/linearLayout2"
-        android:layout_below="@+id/linearLayout2"
-        android:layout_marginTop="31dp"
-        android:orientation="vertical" >
+        android:id="@+id/LinearLayoutUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textViewUsername"
+            android:layout_width="79dp"
+            android:layout_height="wrap_content"
+            android:text="@string/username"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <EditText
+            android:id="@+id/editTextUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayoutPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
         <TextView
             android:id="@+id/textViewPassword"
@@ -52,17 +137,13 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword" />
+
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/linearLayout3"
-        android:layout_alignRight="@+id/linearLayout3"
-        android:layout_below="@+id/linearLayout3"
-        android:layout_marginTop="24dp"
-        android:orientation="vertical" >
+        android:id="@+id/LinearLayoutRePassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
         <TextView
             android:id="@+id/textViewRePassword"
@@ -73,44 +154,21 @@
 
         <EditText
             android:id="@+id/editTextRePassword"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:ems="10"
             android:inputType="textPassword" />
+
     </LinearLayout>
 
     <Button
         android:id="@+id/buttonRegister"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/linearLayout4"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/linearLayout4"
+        android:layout_gravity="bottom|center_horizontal"
         android:layout_marginBottom="15dp"
         android:onClick="registerAttempt"
         android:text="@string/register" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp"
-        android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/textViewUsername"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/username"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <EditText
-            android:id="@+id/editTextUsername"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text" />
-    </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>
