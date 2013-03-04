@@ -5,6 +5,7 @@ import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerUserAccessorImpl;
 import edu.gatech.oad.fullhouse.findmystuff.view.AddItemActivity;
 import edu.gatech.oad.fullhouse.findmystuff.view.LoginActivity;
 import edu.gatech.oad.fullhouse.findmystuff.dao.ItemAccessor;
+import edu.gatech.oad.fullhouse.findmystuff.model.Item;
 
 public class AddItemPresenter {
 
