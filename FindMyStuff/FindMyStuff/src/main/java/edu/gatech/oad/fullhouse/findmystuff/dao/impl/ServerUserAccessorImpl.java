@@ -1,4 +1,4 @@
-package edu.gatech.oad.fullhouse.findmystuff.model;
+package edu.gatech.oad.fullhouse.findmystuff.dao.impl;
 
 import java.util.HashMap;
 import java.util.List;
@@ -7,6 +7,8 @@ import java.util.Map;
 import com.google.gson.Gson;
 
 import edu.gatech.oad.fullhouse.findmystuff.client.RESTClient;
+import edu.gatech.oad.fullhouse.findmystuff.dao.UserAccessor;
+import edu.gatech.oad.fullhouse.findmystuff.model.User;
 
 /**
  * An implementation of UserAccessor to use the RoR server
@@ -39,5 +41,4 @@ public class ServerUserAccessorImpl extends RESTClient<User> implements UserAcce
     public List<User> getUsers() {
         return super.list();
     }
-
 }

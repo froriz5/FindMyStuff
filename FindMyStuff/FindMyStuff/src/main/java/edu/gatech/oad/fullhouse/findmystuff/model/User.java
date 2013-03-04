@@ -5,6 +5,7 @@ import java.util.Date;
 import android.location.Location;
 
 public class User {
+    private long id;
 	private String username;
 	private String password;
 	private String name;
@@ -50,6 +51,14 @@ public class User {
 			return false;
 		}
 	}
+	
+	public long getId() {
+        return id;
+    }
+	
+	public void setId(long id) {
+        this.id = id;
+    }
 	
 	public String getUsername() {
 		return username;

@@ -7,8 +7,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import edu.gatech.oad.fullhouse.findmystuff.R;
-import edu.gatech.oad.fullhouse.findmystuff.R.string;
+import edu.gatech.oad.fullhouse.findmystuff.model.Session;
 import edu.gatech.oad.fullhouse.findmystuff.model.Settings;
+import edu.gatech.oad.fullhouse.findmystuff.model.User;
 import edu.gatech.oad.fullhouse.findmystuff.pres.LoginPresenter;
 
 public class LoginActivity extends Activity {
@@ -48,7 +49,6 @@ public class LoginActivity extends Activity {
     }
     
     public void doLogin() {
-        // TODO
         ((TextView)findViewById(R.id.textViewSuccess)).setVisibility(View.VISIBLE);
     }
     

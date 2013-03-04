@@ -1,9 +1,9 @@
 package edu.gatech.oad.fullhouse.findmystuff.pres;
 
 import android.os.AsyncTask;
-import edu.gatech.oad.fullhouse.findmystuff.model.ServerUserAccessorImpl;
+import edu.gatech.oad.fullhouse.findmystuff.dao.UserAccessor;
+import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerUserAccessorImpl;
 import edu.gatech.oad.fullhouse.findmystuff.model.User;
-import edu.gatech.oad.fullhouse.findmystuff.model.UserAccessor;
 import edu.gatech.oad.fullhouse.findmystuff.view.RegisterActivity;
 
 public class RegisterPresenter {
