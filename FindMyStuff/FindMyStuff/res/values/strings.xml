@@ -27,10 +27,15 @@
     <string name="incident">Incident</string>
     <string name="status">Status</string>
     <string name="location">Location</string>
-    
+    <string name="found_items">Found Items</string>
+    <string name="lost_items">Lost Items</string>
+
     <string-array name="features_arrays">
         <item>Public</item>
         <item>Private</item>
     </string-array>
+
+    <string name="title_activity_activity_view_items_list">Activity_view_items_list</string>
+    <string name="title_activity_view__items__list">View_Items_List</string>
 
 </resources>

@@ -28,6 +28,14 @@
             android:name="edu.gatech.oad.fullhouse.findmystuff.DashboardActivity"
             android:label="@string/title_activity_dashboard" >
         </activity>
+        <activity
+            android:name="edu.gatech.oad.fullhouse.findmystuff.Activity_view_items_list"
+            android:label="@string/title_activity_activity_view_items_list" >
+        </activity>
+        <activity
+            android:name="edu.gatech.oad.fullhouse.findmystuff.View_Items_List"
+            android:label="@string/title_activity_view__items__list" >
+        </activity>
     </application>
 
 </manifest>
