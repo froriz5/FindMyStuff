@@ -12,7 +12,7 @@
         android:layout_marginTop="50dp"
         android:layout_weight="0.00"
         android:ems="10"
-        android:text="@string/username" >
+        android:hint="@string/username" >
 
         <requestFocus />
     </EditText>
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
-        android:text="@string/password" />
+        android:hint="@string/password" />
 
     <Button
         android:id="@+id/loginButton"

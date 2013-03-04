@@ -10,7 +10,7 @@ public class ViewItemsActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_items_list);
+        setContentView(R.layout.activity_view_items);
 //        this.presenter = new ViewItemsPresenter(this);
     }
 

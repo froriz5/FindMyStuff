@@ -1,0 +1,65 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/itemListFoundView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" 
+        android:text="@string/found_items">
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/itemListFoundItem1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Found Item 1" />
+    
+    <EditText
+        android:id="@+id/itemListFoundItem2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Found Item 2" />
+    
+    <EditText
+        android:id="@+id/itemListFoundItem3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Found Item 3" />
+
+    <EditText
+        android:id="@+id/itemListLostItemView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="@string/lost_items" />
+    
+    <EditText
+        android:id="@+id/itemListLostItem1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Lost Item 1" />
+    
+    <EditText
+        android:id="@+id/itemListLostItem2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Lost Item 2" />
+    
+    <EditText
+        android:id="@+id/itemListLostItem3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Lost Item 3" />
+
+</LinearLayout>
