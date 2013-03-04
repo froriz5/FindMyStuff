@@ -19,5 +19,6 @@
     <string name="name">Name</string>
     <string name="city">City</string>
     <string name="state">State</string>
+    <string name="action_settings">Settings</string>
 
 </resources>
