@@ -28,6 +28,7 @@ public class RegisterPresenter {
 		
 		if (valid) {
 			new AsyncTask<Void, Void, Integer>() {
+				@Override
 				protected Integer doInBackground(Void... params) {
 					try {
 	                    // return 1 for a username taken error if user found
@@ -45,6 +46,7 @@ public class RegisterPresenter {
 					return 0;
 				}
 				
+				@Override
 				protected void onPostExecute(Integer result) {
 					if (result == 0) {
 						activity.finish();
