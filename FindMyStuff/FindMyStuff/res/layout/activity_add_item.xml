@@ -3,13 +3,88 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <TextView
+    <EditText
+        android:id="@+id/addItemNameView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:layout_weight="0.00"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="@string/hello_world" />
+        android:text="@string/name" 
+        android:editable="false">
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/addItemNameField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/addItemCategoryView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" 
+        android:text="@string/category"
+        android:editable="false"/>
+
+    <EditText
+        android:id="@+id/addItemCategoryField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/features_arrays"
+        android:prompt="@string/feature_prompt" />
+
+    <Button
+        android:id="@+id/addItemAddFeature"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_feature" />
+
+    <EditText
+        android:id="@+id/addItemIncidentView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="@string/incident" />
+
+    <EditText
+        android:id="@+id/addItemIncidentField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/addItemStatusView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="@string/status" />
+
+    <EditText
+        android:id="@+id/addItemStatusField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Lost/Found/Donated" />
+
+    <EditText
+        android:id="@+id/addItemLocationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="@string/location" />
+
+    <EditText
+        android:id="@+id/addItemLocationField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
 
 </LinearLayout>

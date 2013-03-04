@@ -20,5 +20,17 @@
     <string name="city">City</string>
     <string name="state">State</string>
     <string name="action_settings">Settings</string>
+    <string name="category">Category</string>
+    <string name="features">Features</string>
+    <string name="add_feature">+ Add Features</string>
+    <string name="feature_prompt">Choose Visibility</string>
+    <string name="incident">Incident</string>
+    <string name="status">Status</string>
+    <string name="location">Location</string>
+    
+    <string-array name="features_arrays">
+        <item>Public</item>
+        <item>Private</item>
+    </string-array>
 
 </resources>
