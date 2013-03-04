@@ -6,7 +6,7 @@ import android.util.Log;
 import edu.gatech.oad.fullhouse.findmystuff.R;
 import edu.gatech.oad.fullhouse.findmystuff.R.layout;
 import edu.gatech.oad.fullhouse.findmystuff.client.RESTClient;
-import edu.gatech.oad.fullhouse.findmystuff.model.ServerUserAccessorImpl;
+import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerUserAccessorImpl;
 import edu.gatech.oad.fullhouse.findmystuff.model.Settings;
 import edu.gatech.oad.fullhouse.findmystuff.model.User;
 
@@ -24,7 +24,7 @@ public class HelloAndroidActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "onCreate");
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_login);
         
         //test code
         Settings.instance().setServerUrl("http://128.61.59.209:3000");

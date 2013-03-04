@@ -26,7 +26,7 @@ public class LoginActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "onCreate");
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_login);
         presenter = new LoginPresenter(this);
         
         //NOTE: change this to your own ip...eventually, we'll stand up a global server
