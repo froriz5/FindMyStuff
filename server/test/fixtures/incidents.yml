@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  incidentDate: 2013-03-04
+  user_id: 
+
+two:
+  incidentDate: 2013-03-04
+  user_id: 

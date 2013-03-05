@@ -11,7 +11,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130224190705) do
+ActiveRecord::Schema.define(:version => 20130305111112) do
+
+  create_table "incidents", :force => true do |t|
+    t.date     "incidentDate"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "item_features", :force => true do |t|
+    t.string   "name"
+    t.boolean  "hidden"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "item_features_items", :id => false, :force => true do |t|
+    t.integer "item_id"
+    t.integer "item_feature_id"
+  end
+
+  create_table "items", :force => true do |t|
+    t.string   "name"
+    t.string   "category"
+    t.integer  "incident_id"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "items_item_features", :id => false, :force => true do |t|
+    t.integer "item_id"
+    t.integer "item_incident_id"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username"

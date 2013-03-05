@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @item_feature.name %>
+</p>
+
+<p>
+  <b>Hidden:</b>
+  <%= @item_feature.hidden %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_feature_path(@item_feature) %> |
+<%= link_to 'Back', item_features_path %>

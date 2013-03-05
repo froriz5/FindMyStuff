@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Incidentdate:</b>
+  <%= @incident.incidentDate %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @incident.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_incident_path(@incident) %> |
+<%= link_to 'Back', incidents_path %>

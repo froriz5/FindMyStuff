@@ -1,4 +1,10 @@
 Server::Application.routes.draw do
+  resources :items
+
+  resources :item_features
+
+  resources :incidents
+
   resources :users do
     collection do
       get 'search'
