@@ -29,6 +29,7 @@
     <string name="location">Location</string>
     <string name="found_items">Found Items</string>
     <string name="lost_items">Lost Items</string>
+    <string name="add_item">Add Item</string>
 
     <string-array name="features_arrays">
         <item>Public</item>

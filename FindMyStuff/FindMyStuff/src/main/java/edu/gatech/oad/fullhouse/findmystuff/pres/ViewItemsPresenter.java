@@ -2,7 +2,6 @@ package edu.gatech.oad.fullhouse.findmystuff.pres;
 
 import edu.gatech.oad.fullhouse.findmystuff.dao.UserAccessor;
 import edu.gatech.oad.fullhouse.findmystuff.model.Item;
-import edu.gatech.oad.fullhouse.findmystuff.view.AddItemActivity;
 import edu.gatech.oad.fullhouse.findmystuff.view.ViewItemsActivity;
 
 public class ViewItemsPresenter {

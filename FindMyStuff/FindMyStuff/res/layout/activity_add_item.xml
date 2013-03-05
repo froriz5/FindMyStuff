@@ -35,7 +35,7 @@
         android:ems="10" />
 
     <Spinner
-        android:id="@+id/spinner1"
+        android:id="@+id/addItemFeature"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/features_arrays"
@@ -86,5 +86,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10" />
+    
+    <Button
+        android:id="@+id/addItemAddButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_item" />
 
 </LinearLayout>
