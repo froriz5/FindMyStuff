@@ -1,26 +1,39 @@
 package edu.gatech.oad.fullhouse.findmystuff.pres;
 
-import edu.gatech.oad.fullhouse.findmystuff.dao.UserAccessor;
-import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerUserAccessorImpl;
-import edu.gatech.oad.fullhouse.findmystuff.view.AddItemActivity;
-import edu.gatech.oad.fullhouse.findmystuff.view.LoginActivity;
+import android.os.AsyncTask;
 import edu.gatech.oad.fullhouse.findmystuff.dao.ItemAccessor;
+import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerAccessorFactory;
 import edu.gatech.oad.fullhouse.findmystuff.model.Item;
+import edu.gatech.oad.fullhouse.findmystuff.view.AddItemActivity;
 
 public class AddItemPresenter {
 
 	private AddItemActivity activity;
-	private UserAccessor accessor;
+	private ItemAccessor accessor;
 	private Item item;
 	
-	public AddItemPresenter(AddItemActivity activ, Item item) {
+	public AddItemPresenter(AddItemActivity activ) {
 		activity = activ;
-		accessor = new ServerUserAccessorImpl();
-		this.item = item;
+		accessor = ServerAccessorFactory.getItemAccessor();
 	}
 	
 	public void addItem(Item item) {
-		
+	    new AsyncTask<Item, Void, Void>() {
+
+            @Override
+            protected Void doInBackground(Item ... params) {
+                for (Item item : params) {
+                    accessor.addItem(item);
+                }
+                return null;
+            }
+	        
+            @Override
+            protected void onPostExecute(Void result) {
+                super.onPostExecute(result);
+                activity.finish();
+            }
+	    }.execute(item);
 	}
 
 }

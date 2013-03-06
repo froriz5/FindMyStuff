@@ -1,65 +1,48 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/itemListFoundView"
+    <LinearLayout
+        android:id="@+id/itemLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10" 
-        android:text="@string/found_items">
-
-        <requestFocus />
-    </EditText>
-
-    <EditText
-        android:id="@+id/itemListFoundItem1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Found Item 1" />
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        
+        <TextView
+            android:id="@+id/itemFoundView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/found_items" />
     
-    <EditText
-        android:id="@+id/itemListFoundItem2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Found Item 2" />
+        <ListView
+            android:id="@+id/itemListFoundView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4" />
     
-    <EditText
-        android:id="@+id/itemListFoundItem3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Found Item 3" />
-
-    <EditText
-        android:id="@+id/itemListLostItemView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:text="@string/lost_items" />
+        <TextView
+            android:id="@+id/itemLostView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/lost_items" />
     
-    <EditText
-        android:id="@+id/itemListLostItem1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Lost Item 1" />
+        <ListView
+            android:id="@+id/itemListLostView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4" />
+    </LinearLayout>
     
-    <EditText
-        android:id="@+id/itemListLostItem2"
+    <Button
+        android:id="@+id/btnAddItem"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Lost Item 2" />
-    
-    <EditText
-        android:id="@+id/itemListLostItem3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Lost Item 3" />
-
-</LinearLayout>
+        android:layout_height="fill_parent"
+        android:layout_below="@id/itemLayout"
+    />
+</RelativeLayout>

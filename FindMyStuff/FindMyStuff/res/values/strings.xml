@@ -30,6 +30,7 @@
     <string name="found_items">Found Items</string>
     <string name="lost_items">Lost Items</string>
     <string name="add_item">Add Item</string>
+    <string name="status_lost_found_donated">Status (Lost/Found/Donated)</string>
 
     <string-array name="features_arrays">
         <item>Public</item>

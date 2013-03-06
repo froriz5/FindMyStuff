@@ -4,9 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 import edu.gatech.oad.fullhouse.findmystuff.R;
-import edu.gatech.oad.fullhouse.findmystuff.model.Incident;
 import edu.gatech.oad.fullhouse.findmystuff.model.Item;
 import edu.gatech.oad.fullhouse.findmystuff.pres.AddItemPresenter;
 
@@ -19,6 +20,15 @@ public class AddItemActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_item);
+		Button btn = (Button)findViewById(R.id.addItemAddButton);
+		btn.setOnClickListener(new OnClickListener() {
+
+            public void onClick(View v) {
+                doAddItem();
+            }
+		});
+		
+		this.pres = new AddItemPresenter(this);
 	}
 
 	@Override
@@ -28,7 +38,7 @@ public class AddItemActivity extends Activity {
 		return true;
 	}
 	
-	public void add(View v) {
+	private void doAddItem() {
 		String name = ((TextView)findViewById(R.id.addItemNameField)).getText().toString();
 		String category = ((TextView)findViewById(R.id.addItemCategoryField)).getText().toString();
 		//String feature = ((TextView)findViewById(R.id.addItemFeature)).getText().toString();

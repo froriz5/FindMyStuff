@@ -59,19 +59,19 @@ public class RegisterPresenter {
 			}.execute();
 		}
 		
-		if (accessor.getUserByUsername(usern) != null) {
-			activity.displayUsernameTakenError();
-			valid = false;
-		}
-		if (accessor.getUserByEmail(email) != null) {
-			activity.displayEmailTakenError();
-			valid = false;
-		}
-		
-		if (valid) {
-			accessor.addUser(User.newUser(usern, passw, name, loc, false, email, phone));
-			activity.finish();
-		}
+//		if (accessor.getUserByUsername(usern) != null) {
+//			activity.displayUsernameTakenError();
+//			valid = false;
+//		}
+//		if (accessor.getUserByEmail(email) != null) {
+//			activity.displayEmailTakenError();
+//			valid = false;
+//		}
+//		
+//		if (valid) {
+//			accessor.addUser(User.newUser(usern, passw, name, loc, false, email, phone));
+//			activity.finish();
+//		}
 	}
 	
 	/*

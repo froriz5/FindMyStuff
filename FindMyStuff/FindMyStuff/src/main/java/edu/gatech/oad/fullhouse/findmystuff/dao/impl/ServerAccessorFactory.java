@@ -4,17 +4,24 @@ import edu.gatech.oad.fullhouse.findmystuff.dao.IncidentAccessor;
 import edu.gatech.oad.fullhouse.findmystuff.dao.ItemAccessor;
 import edu.gatech.oad.fullhouse.findmystuff.dao.UserAccessor;
 
+/**
+ * A factory for getting accessors.  This allows us to keep implementation details
+ * out of our code.
+ * 
+ * @author Jesse Rosalia
+ *
+ */
 public class ServerAccessorFactory {
 
-    public IncidentAccessor getIncidentAccessor() {
+    public static IncidentAccessor getIncidentAccessor() {
         return new ServerIncidentAccessorImpl();
     }
 
-    public ItemAccessor getItemAccessor() {
+    public static ItemAccessor getItemAccessor() {
         return new ServerItemAccessorImpl();
     }
 
-    public UserAccessor getUserAccessor() {
+    public static UserAccessor getUserAccessor() {
         return new ServerUserAccessorImpl();
     }
 }
