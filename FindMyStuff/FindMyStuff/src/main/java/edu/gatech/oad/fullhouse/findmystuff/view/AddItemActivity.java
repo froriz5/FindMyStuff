@@ -1,13 +1,13 @@
 package edu.gatech.oad.fullhouse.findmystuff.view;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import edu.gatech.oad.fullhouse.findmystuff.R;
 import edu.gatech.oad.fullhouse.findmystuff.model.Item;
@@ -35,7 +35,15 @@ public class AddItemActivity extends Activity {
             }
 		});
 		
-		this.pres = new AddItemPresenter(this);
+        btn = (Button)findViewById(R.id.addItemCancelButton);
+        btn.setOnClickListener(new OnClickListener() {
+
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        this.pres = new AddItemPresenter(this);
 	}
 
 	@Override
@@ -50,7 +58,7 @@ public class AddItemActivity extends Activity {
 		String category = ((TextView)findViewById(R.id.addItemCategoryField)).getText().toString();
 		//String feature = ((TextView)findViewById(R.id.addItemFeature)).getText().toString();
 		String incident = ((TextView)findViewById(R.id.addItemIncidentField)).getText().toString();
-		String status = ((TextView)findViewById(R.id.addItemStatusField)).getText().toString();
+		String status = ((Spinner)findViewById(R.id.addItemStatus)).getSelectedItem().toString();
 		String location = ((TextView)findViewById(R.id.addItemLocationField)).getText().toString();
 		Item item = new Item();
 		item.setName(name);

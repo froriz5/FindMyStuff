@@ -39,13 +39,13 @@
         android:hint="@string/incident"
         android:ems="10" />
 
-    <EditText
-        android:id="@+id/addItemStatusField"
+    <Spinner
+        android:id="@+id/addItemStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/status_lost_found_donated" />
-
+        android:entries="@array/status_arrays"
+        android:prompt="@string/status_prompt" />
+    
     <EditText
         android:id="@+id/addItemLocationField"
         android:layout_width="match_parent"
@@ -58,5 +58,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/add_item" />
+
+    <Button
+        android:id="@+id/addItemCancelButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel" />
 
 </LinearLayout>

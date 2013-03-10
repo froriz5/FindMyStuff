@@ -41,4 +41,10 @@ public class ServerUserAccessorImpl extends RESTClient<User> implements UserAcce
     public List<User> getUsers() {
         return super.list();
     }
+    
+    public void updateUser(User user) {
+        Gson gson = new Gson();
+        String json = gson.toJson(user);
+        super.doPut("" + user.getId(), json);
+    }
 }

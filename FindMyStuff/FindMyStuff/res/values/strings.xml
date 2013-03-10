@@ -30,12 +30,19 @@
     <string name="found_items">Found Items</string>
     <string name="lost_items">Lost Items</string>
     <string name="add_item">Add Item</string>
-    <string name="status_lost_found_donated">Status (Lost/Found/Donated)</string>
+    <string name="cancel">Cancel</string>
+    <string name="status_prompt">Choose Status</string>
 
     <string-array name="features_arrays">
         <item>Public</item>
         <item>Private</item>
     </string-array>
+
+    <string-array name="status_arrays">
+        <item>Lost</item>
+        <item>Found</item>
+        <item>Donated</item>
+        </string-array>
 
     <string name="title_activity_activity_view_items_list">Activity_view_items_list</string>
     <string name="title_activity_view__items__list">View_Items_List</string>

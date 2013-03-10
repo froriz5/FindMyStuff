@@ -41,4 +41,11 @@ public interface UserAccessor {
 	 * @return
 	 */
 	public abstract List<User> getUsers();
+	
+	/**
+	 * Update a user in the storage.
+	 * 
+	 * @param user
+	 */
+	public abstract void updateUser(User user);
 }

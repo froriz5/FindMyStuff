@@ -4,6 +4,29 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
+    
+    <TextView
+        android:id="@+id/textViewPasswordError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/password_error"
+        android:visibility="gone" />
+    <TextView
+        android:id="@+id/textViewLockedError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/locked_error"
+        android:visibility="gone" />
+    <TextView
+        android:id="@+id/textViewSuccess"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/success"
+        android:ems="10"
+        android:visibility="gone" />
+    
     <EditText
         android:id="@+id/usernameText"
         android:layout_width="match_parent"
@@ -42,29 +65,5 @@
         android:onClick="register"
         android:text="@string/register" />
 
-    <TextView
-        android:id="@+id/textViewLockedError"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/locked_error"
-        android:visibility="gone" />
-
-    <TextView
-        android:id="@+id/textViewPasswordError"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/password_error"
-        android:visibility="gone" />
-
-    <TextView
-        android:id="@+id/textViewSuccess"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="30dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/success"
-        android:ems="10"
-        android:visibility="gone" />
-        
 
 </LinearLayout>

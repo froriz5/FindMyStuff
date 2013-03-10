@@ -41,7 +41,16 @@ public class LoginPresenter {
             protected User doInBackground(Void... params) {
                 try {
                     //try to find the user, or catch an error if there was a problem
-                    return accessor.getUserByUsername(username);
+                    User user = accessor.getUserByUsername(username);
+                    //don't even check the password if the user is locked
+                    if (user.isLocked()) {
+                        return user;
+                    }
+                    //this will up the loginAttempt count, if incorrect, or reset it if correct
+                    boolean validPassword = user.checkPassword(password);
+                    //in both cases, update the user object
+                    accessor.updateUser(user);
+                    return validPassword || user.isLocked() ? user : null;
                 } catch (Exception e) {
                     return null;
                 }
@@ -53,12 +62,10 @@ public class LoginPresenter {
                 activity.setProgressBarIndeterminateVisibility(false); 
                 
                 //test the states of the user object...
-                if (user == null) {
+                if (user == null) { //not found, or invalid password
                     activity.displayPasswordError();
-                }else if (user.isLocked()) {
+                }else if (user.isLocked()) { //locked
                     activity.displayLockedError();
-                } else if (!user.checkPassword(password)) {
-                    activity.displayPasswordError();
                 } else { //SUCCESS!
                     Session.newSession().setLoggedInUser(user);
                     activity.doLogin();
