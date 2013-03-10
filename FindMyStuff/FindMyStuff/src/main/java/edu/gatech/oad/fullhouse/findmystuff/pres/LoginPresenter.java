@@ -34,7 +34,7 @@ public class LoginPresenter {
 	 */
 	public void login(final String username, final String password) {
 	    //have to use an async task to avoid a NetworkOnMainThreadException
-	    //TODO: add progress indicator?
+        this.activity.setProgressBarIndeterminateVisibility(true); 
 	    new AsyncTask<Void, Void, User>() {
 
             @Override
@@ -50,6 +50,7 @@ public class LoginPresenter {
             @Override
             protected void onPostExecute(User user) {
                 //NOTE: runs in the UI thread, so activity calls are safe
+                activity.setProgressBarIndeterminateVisibility(false); 
                 
                 //test the states of the user object...
                 if (user == null) {

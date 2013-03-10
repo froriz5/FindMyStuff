@@ -1,8 +1,8 @@
 package edu.gatech.oad.fullhouse.findmystuff.pres;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import android.os.AsyncTask;
 import edu.gatech.oad.fullhouse.findmystuff.dao.ItemAccessor;
 import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerAccessorFactory;
 import edu.gatech.oad.fullhouse.findmystuff.model.Item;
@@ -27,21 +27,19 @@ public class ViewItemsPresenter {
 	}
 
     public void loadItems() {
-        //TODO: incident not yet implemented
-//        List<Item> items = this.accessor.getItemsForIncident(null);
-        //TEST DATA
-        List<Item> items = new ArrayList<Item>();
-        Item item = new Item();
-        item.setName("Washing Machine");
-        item.setStatus("Lost");
-        item.setCategory("Appliances");
-        items.add(item);
-        item = new Item();
-        item.setName("Picture Frame");
-        item.setStatus("Found");
-        item.setCategory("Decor");
-        items.add(item);
-        activity.viewItems(items);
-    }
+        this.activity.setProgressBarIndeterminateVisibility(true); 
+        new AsyncTask<Void, Void, List<Item>>() {
 
+            @Override
+            protected List<Item> doInBackground(Void... params) {
+                //TODO: select an incident before loading items
+                return accessor.getItemsForIncident(null);
+            }
+
+            protected void onPostExecute(java.util.List<Item> result) {
+                activity.setProgressBarIndeterminateVisibility(false); 
+                activity.viewItems(result);
+            };
+        }.execute();
+    }
 }

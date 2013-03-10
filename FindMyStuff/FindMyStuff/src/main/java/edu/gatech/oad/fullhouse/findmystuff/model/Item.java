@@ -19,7 +19,7 @@ public class Item {
 
     private String status;
 
-    private List<ItemFeature> features = new ArrayList<ItemFeature>();
+    private List<ItemFeature> item_features = new ArrayList<ItemFeature>();
 
     public String getName() {
         return name;
@@ -53,12 +53,12 @@ public class Item {
         this.status = status;
     }
 
-    public List<ItemFeature> getFeatures() {
-        return features;
+    public List<ItemFeature> getItem_Features() {
+        return item_features;
     }
 
-    public void setFeatures(List<ItemFeature> features) {
-        this.features = features;
+    public void setItem_Features(List<ItemFeature> item_features) {
+        this.item_features = item_features;
     }
 
 }

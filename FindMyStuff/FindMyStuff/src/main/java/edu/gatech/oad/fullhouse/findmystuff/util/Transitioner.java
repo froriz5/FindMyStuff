@@ -28,14 +28,14 @@ public class Transitioner {
      */
     public final void transitionTo(Class<? extends Activity> activityClass) {
         try {
-            transitionTo(activityClass, null, false);
+            transitionTo(activityClass, null, false, null);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     public final void transitionTo(Class<? extends Activity> activityClass, Bundle arguments) {
         try {
-            transitionTo(activityClass, arguments, false);
+            transitionTo(activityClass, arguments, false, null);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -43,7 +43,7 @@ public class Transitioner {
 
     public final void transitionToAndFinish(Class<? extends Activity> activityClass) {
         try {
-            transitionTo(activityClass, null, true);
+            transitionTo(activityClass, null, true, null);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -51,14 +51,22 @@ public class Transitioner {
         
     public final void transitionToAndFinish(Class<? extends Activity> activityClass, Bundle arguments) {
         try {
-            transitionTo(activityClass, arguments, true);
+            transitionTo(activityClass, arguments, true, null);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
         
-    protected void transitionTo(Class<? extends Activity> activityClass, Bundle arguments, boolean finish) {
-        handler.post(new TransitionRunnable(activityClass, arguments));
+    public final void transitionToAndGetResult(Class<? extends Activity> activityClass, int requestCode) {
+        try {
+            transitionTo(activityClass, null, false, requestCode);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+        
+    protected void transitionTo(Class<? extends Activity> activityClass, Bundle arguments, boolean finish, Integer requestCode) {
+        handler.post(new TransitionRunnable(activityClass, arguments, requestCode));
         if (finish) {
             Transitioner.this.activity.finish();
         }
@@ -68,10 +76,12 @@ public class Transitioner {
 
         private Class<? extends Activity> activityClass;
         private Bundle arguments;
+        private Integer requestCode;
 
-        public TransitionRunnable(Class<? extends Activity> activityClass, Bundle arguments) {
+        public TransitionRunnable(Class<? extends Activity> activityClass, Bundle arguments, Integer requestCode) {
             this.activityClass = activityClass;
             this.arguments     = arguments;
+            this.requestCode   = requestCode;
         }
 
         public void run() {
@@ -80,7 +90,11 @@ public class Transitioner {
             if (this.arguments != null) {
                 intent.putExtras(arguments);
             }
-            Transitioner.this.activity.startActivity(intent);
+            if (requestCode != null) {
+                Transitioner.this.activity.startActivityForResult(intent, requestCode);
+            } else {
+                Transitioner.this.activity.startActivity(intent);
+            }
         }
     }
 }

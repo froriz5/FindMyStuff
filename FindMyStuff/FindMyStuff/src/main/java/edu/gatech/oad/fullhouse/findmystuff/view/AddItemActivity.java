@@ -1,9 +1,11 @@
 package edu.gatech.oad.fullhouse.findmystuff.view;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,11 +17,16 @@ public class AddItemActivity extends Activity {
 
 	private Item item;
 	private AddItemPresenter pres;
+    private boolean itemAdded;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_add_item);
+        //must be before adding contents
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+        setProgressBarIndeterminateVisibility(false);        
+
+        setContentView(R.layout.activity_add_item);
 		Button btn = (Button)findViewById(R.id.addItemAddButton);
 		btn.setOnClickListener(new OnClickListener() {
 
@@ -52,6 +59,14 @@ public class AddItemActivity extends Activity {
 		//item.setIncident((Incident)incident);
 		item.setStatus(status);
 		pres.addItem(item);
+		itemAdded = true;
 	}
 
+	@Override
+	public void finish() {
+        if (itemAdded) {
+            setResult(Activity.RESULT_OK);
+        }
+	    super.finish();
+	}
 }
