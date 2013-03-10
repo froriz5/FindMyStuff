@@ -30,7 +30,6 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.activity_login);
         presenter = new LoginPresenter(this);
         
-        //NOTE: change this to your own ip...eventually, we'll stand up a global server
         Settings.instance().setServerUrl("http://floating-wildwood-5355.herokuapp.com");
     }
     
@@ -53,12 +52,10 @@ public class LoginActivity extends Activity {
     }
     
     public void displayLockedError() {
-    	// TODO
     	((TextView)findViewById(R.id.textViewLockedError)).setVisibility(View.VISIBLE);
     }
     
     public void displayPasswordError() {
-    	// TODO
 //    	((TextView)findViewById(R.id.passwordError)).setText("Username/Password incorrect");
     	((TextView)findViewById(R.id.textViewPasswordError)).setVisibility(View.VISIBLE);
     }

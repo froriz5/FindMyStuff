@@ -42,7 +42,7 @@ public class User {
 	
 	public boolean checkPassword(String attempt) {
 		if (password.equals(attempt)) {
-			loginAttempts = 0;
+			resetLogin();
 			return true;
 		} else {
 			loginAttempts++;
@@ -50,6 +50,10 @@ public class User {
 				isLocked = true;
 			return false;
 		}
+	}
+	
+	public void resetLogin() {
+		loginAttempts = 0;
 	}
 	
 	public long getId() {
@@ -63,6 +67,7 @@ public class User {
 	public String getUsername() {
 		return username;
 	}
+	
 	public void setUsername(String username) {
         this.username = username;
     }
@@ -85,6 +90,7 @@ public class User {
 	public void setLocation(String location) {
         this.location = location;
     }
+	
 	public Date getDateJoined() {
 		return dateJoined;
 	}
@@ -97,11 +103,23 @@ public class User {
 		return emailAddress;
 	}
 	
+	public void setEmail(String emailAddress) {
+		this.emailAddress = emailAddress;
+	}
+	
 	public String getPhone() {
 		return phoneNumber;
 	}
 	
+	public void setPhone(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	
 	public boolean isAdmin() {
 		return isAdmin;
+	}
+	
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 }
