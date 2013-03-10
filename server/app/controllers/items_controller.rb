@@ -40,7 +40,11 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(params[:item])
+    item_params = params[:item]
+    if item_params[:item_features] == nil
+        item_params.remove(:item_features)
+    end
+    @item = Item.new(item_params)
 
     respond_to do |format|
       if @item.save
