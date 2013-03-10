@@ -39,5 +39,7 @@
 
     <string name="title_activity_activity_view_items_list">Activity_view_items_list</string>
     <string name="title_activity_view__items__list">View_Items_List</string>
+    <string name="title_activity_add_item">AddItemActivity</string>
+    <string name="title_activity_lookup_user">LookupUserActivity</string>
 
 </resources>

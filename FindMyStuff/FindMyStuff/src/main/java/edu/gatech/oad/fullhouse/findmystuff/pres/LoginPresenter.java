@@ -6,6 +6,7 @@ import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerUserAccessorImpl;
 import edu.gatech.oad.fullhouse.findmystuff.model.Session;
 import edu.gatech.oad.fullhouse.findmystuff.model.User;
 import edu.gatech.oad.fullhouse.findmystuff.util.Transitioner;
+import edu.gatech.oad.fullhouse.findmystuff.view.DashboardActivity;
 import edu.gatech.oad.fullhouse.findmystuff.view.LoginActivity;
 import edu.gatech.oad.fullhouse.findmystuff.view.ViewItemsActivity;
 
@@ -61,7 +62,8 @@ public class LoginPresenter {
                     Session.newSession().setLoggedInUser(user);
                     activity.doLogin();
                     //transition to the next page
-                    new Transitioner(activity).transitionTo(ViewItemsActivity.class);
+//                    new Transitioner(activity).transitionTo(ViewItemsActivity.class);
+                    new Transitioner(activity).transitionTo(DashboardActivity.class);
                 }
             }
 	    }.execute();
