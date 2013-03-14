@@ -15,15 +15,16 @@
             android:id="@+id/textViewName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_gravity="bottom"
+            android:layout_weight="0.75"
             android:text="@string/name"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <EditText
             android:id="@+id/editTextName"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="56dp"
+            android:layout_weight="0.99"
             android:ems="10"
             android:inputType="textPersonName" >
 
@@ -41,15 +42,16 @@
             android:id="@+id/textViewCity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:layout_weight="1.45"
             android:text="@string/city"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <EditText
             android:id="@+id/editTextCity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="196dp"
+            android:layout_height="56dp"
+            android:layout_gravity="right"
             android:ems="10"
             android:inputType="textPostalAddress" />
 
@@ -64,17 +66,19 @@
             android:id="@+id/textViewState"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1.70"
+            android:layout_gravity="bottom"
+            android:layout_weight="1.07"
             android:text="@string/state"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <EditText
             android:id="@+id/editTextState"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="197dp"
+            android:layout_height="56dp"
+            android:layout_gravity="right"
             android:ems="10"
             android:inputType="textPostalAddress" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -86,14 +90,15 @@
             android:id="@+id/textViewEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="0.40"
             android:text="@string/email"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <EditText
             android:id="@+id/editTextEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="192dp"
+            android:layout_height="55dp"
             android:ems="10"
             android:inputType="textEmailAddress" />
 
@@ -106,15 +111,18 @@
 
         <TextView
             android:id="@+id/textViewUsername"
-            android:layout_width="79dp"
+            android:layout_width="78dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="0.90"
             android:text="@string/username"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <EditText
             android:id="@+id/editTextUsername"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="196dp"
+            android:layout_height="58dp"
+            android:layout_gravity="right"
             android:ems="10"
             android:inputType="text" />
     </LinearLayout>
@@ -126,15 +134,17 @@
 
         <TextView
             android:id="@+id/textViewPassword"
-            android:layout_width="wrap_content"
+            android:layout_width="118dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:text="@string/password"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
+            android:layout_gravity="right"
             android:ems="10"
             android:inputType="textPassword" />
 
@@ -149,14 +159,14 @@
             android:id="@+id/textViewRePassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:text="@string/re_password"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <EditText
             android:id="@+id/editTextRePassword"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="55dp"
             android:ems="10"
             android:inputType="textPassword" />
 
@@ -166,7 +176,6 @@
         android:id="@+id/buttonRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
         android:layout_marginBottom="15dp"
         android:onClick="registerAttempt"
         android:text="@string/register" />
