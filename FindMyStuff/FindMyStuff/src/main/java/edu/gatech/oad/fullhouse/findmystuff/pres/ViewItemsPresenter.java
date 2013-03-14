@@ -36,7 +36,9 @@ public class ViewItemsPresenter {
                 return accessor.getItemsForIncident(null);
             }
 
-            protected void onPostExecute(java.util.List<Item> result) {
+		
+			@Override
+			protected void onPostExecute(List<Item> result) {
                 activity.setProgressBarIndeterminateVisibility(false); 
                 activity.viewItems(result);
             };
