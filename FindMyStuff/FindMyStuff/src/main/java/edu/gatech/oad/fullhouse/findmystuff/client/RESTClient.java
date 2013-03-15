@@ -211,7 +211,7 @@ public class RESTClient<T> {
         try {
             URL url = new URL(Settings.instance().getServerUrl() + "/" + resource + "/" + query);
             connection = (HttpURLConnection) url.openConnection();
-            connection.setDoOutput(true);
+            connection.setDoOutput(false);
             connection.setRequestMethod("DELETE");
             connection.connect();
             connection.getResponseCode();

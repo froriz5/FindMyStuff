@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.Window;
 import android.widget.TextView;
 import edu.gatech.oad.fullhouse.findmystuff.R;
 import edu.gatech.oad.fullhouse.findmystuff.pres.LookupUserPresenter;
@@ -15,6 +16,10 @@ public class LookupUserActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+        //must be before adding contents
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+        setProgressBarIndeterminateVisibility(false);        
+
 		setContentView(R.layout.activity_lookup_user);
         presenter = new LookupUserPresenter(this);
 	}

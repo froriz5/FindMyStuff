@@ -17,6 +17,8 @@ public class LookupUserPresenter {
 	}
 	
 	public void lookupUser(final String username) {
+
+	    this.activity.setProgressBarIndeterminateVisibility(true); 
 		new AsyncTask<Void, Void, User>() {
 			
 			@Override
@@ -32,6 +34,7 @@ public class LookupUserPresenter {
             @Override
             protected void onPostExecute(User user) {
                 //NOTE: runs in the UI thread, so activity calls are safe
+                activity.setProgressBarIndeterminateVisibility(false); 
                 
                 //test the states of the user object...
                 if (user == null) {
