@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.TextView;
 import edu.gatech.oad.fullhouse.findmystuff.R;
+import edu.gatech.oad.fullhouse.findmystuff.model.Session;
 
 public class DashboardActivity extends Activity {
 
@@ -19,6 +21,9 @@ public class DashboardActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_dashboard, menu);
+		if(Session.instance().getLoggedInUser().isAdmin()){
+			((TextView)findViewById(R.id.lookupUserButton)).setVisibility(View.VISIBLE);
+		}
 		return true;
 	}
 	
