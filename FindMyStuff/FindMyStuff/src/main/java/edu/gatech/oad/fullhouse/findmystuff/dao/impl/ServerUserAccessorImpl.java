@@ -47,4 +47,8 @@ public class ServerUserAccessorImpl extends RESTClient<User> implements UserAcce
         String json = gson.toJson(user);
         super.doPut("" + user.getId(), json);
     }
+    
+    public void deleteUser(User user){
+    	super.doDelete("" + user.getId());
+    }
 }
