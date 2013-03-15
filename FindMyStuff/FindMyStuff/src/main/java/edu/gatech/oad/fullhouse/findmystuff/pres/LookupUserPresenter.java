@@ -49,6 +49,7 @@ public class LookupUserPresenter {
 			activity.userNotFoundError();
 		} else {
 			currentLookup.resetLogin();
+			accessor.updateUser(currentLookup);
 			// TODO update database
 		}
 	}
@@ -58,6 +59,7 @@ public class LookupUserPresenter {
 			activity.userNotFoundError();
 		} else {
 			currentLookup.setAdmin(true);
+			accessor.updateUser(currentLookup);
 			// TODO update database
 		}
 	}
@@ -66,6 +68,7 @@ public class LookupUserPresenter {
 		if (currentLookup == null) {
 			activity.userNotFoundError();
 		} else {
+			accessor.deleteUser(currentLookup);
 			// TODO delete from database
 		}
 	}
