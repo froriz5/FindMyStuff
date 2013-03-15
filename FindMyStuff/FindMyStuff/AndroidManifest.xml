@@ -37,7 +37,7 @@
             android:label="@string/title_activity_dashboard" >
         </activity>
         <activity
-            android:name="edu.gatech.oad.fullhouse.findmystuff.LookupUserActivity"
+            android:name="edu.gatech.oad.fullhouse.findmystuff.view.LookupUserActivity"
             android:label="@string/title_activity_lookup_user" >
         </activity>
     </application>

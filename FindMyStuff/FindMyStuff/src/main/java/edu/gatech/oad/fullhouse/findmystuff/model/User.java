@@ -13,7 +13,7 @@ public class User {
 	private Date dateJoined;
 	private int loginAttempts;
 	private boolean isLocked;
-	private boolean isAdmin;
+	private boolean admin;
 	private String emailAddress;
 	private String phoneNumber;
 	
@@ -30,7 +30,7 @@ public class User {
 		user.dateJoined = new Date();
 		user.loginAttempts = 0;
 		user.isLocked = false;
-		user.isAdmin = admin;
+		user.admin = admin;
 		user.emailAddress = email;
 		user.phoneNumber = phone;
 		return user;
@@ -53,6 +53,7 @@ public class User {
 	}
 	
 	public void resetLogin() {
+		isLocked = false;
 		loginAttempts = 0;
 	}
 	
@@ -116,10 +117,10 @@ public class User {
 	}
 	
 	public boolean isAdmin() {
-		return isAdmin;
+		return admin;
 	}
 	
-	public void setAdmin(boolean isAdmin) {
-		this.isAdmin = isAdmin;
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
 	}
 }
