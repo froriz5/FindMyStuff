@@ -37,7 +37,7 @@ public class LookupUserPresenter {
                 if (user == null) {
                     activity.userNotFoundError();
                 } else {
-                	activity.setFields(user.getUsername(), user.getName(), user.getEmail(), user.isAdmin());
+                	activity.setFields(user.getUsername(), user.getName(), user.getEmail(), user.isLocked(), user.isAdmin());
                 	currentLookup = user;
                 }
             }
@@ -49,6 +49,7 @@ public class LookupUserPresenter {
 			activity.userNotFoundError();
 		} else {
 			currentLookup.resetLogin();
+			activity.changeLockedField(false);
 			new AsyncTask<Void, Void, Void>() {
 				@Override
 	            protected Void doInBackground(Void... params) {
@@ -64,6 +65,7 @@ public class LookupUserPresenter {
 			activity.userNotFoundError();
 		} else {
 			currentLookup.setAdmin(true);
+			activity.changeAdminField(true);
 			new AsyncTask<Void, Void, Void>() {
 				@Override
 	            protected Void doInBackground(Void... params) {
@@ -78,6 +80,7 @@ public class LookupUserPresenter {
 		if (currentLookup == null) {
 			activity.userNotFoundError();
 		} else {
+			activity.removeFields();
 			new AsyncTask<Void, Void, Void>() {
 				@Override
 	            protected Void doInBackground(Void... params) {

@@ -30,11 +30,38 @@ public class LookupUserActivity extends Activity {
 		findViewById(R.id.notFoundError).setVisibility(View.VISIBLE);
 	}
 	
-	public void setFields(String username, String name, String email, boolean admin) {
+	public void setFields(String username, String name, String email, boolean locked, boolean admin) {
 		((TextView)findViewById(R.id.usernameDisplay)).setText(username);
+		((TextView)findViewById(R.id.usernameDisplay)).setVisibility(View.VISIBLE);
 		((TextView)findViewById(R.id.nameDisplay)).setText(name);
+		((TextView)findViewById(R.id.nameDisplay)).setVisibility(View.VISIBLE);
 		((TextView)findViewById(R.id.emailDisplay)).setText(email);
+		((TextView)findViewById(R.id.emailDisplay)).setVisibility(View.VISIBLE);
+		changeLockedField(locked);
+		changeAdminField(admin);
+	}
+	
+	public void removeFields() {
+		((TextView)findViewById(R.id.usernameDisplay)).setText("Username");
+		((TextView)findViewById(R.id.usernameDisplay)).setVisibility(View.INVISIBLE);
+		((TextView)findViewById(R.id.nameDisplay)).setText("Name");
+		((TextView)findViewById(R.id.nameDisplay)).setVisibility(View.INVISIBLE);
+		((TextView)findViewById(R.id.emailDisplay)).setText("Email");
+		((TextView)findViewById(R.id.emailDisplay)).setVisibility(View.INVISIBLE);
+		((TextView)findViewById(R.id.lockedDisplay)).setText("Locked");
+		((TextView)findViewById(R.id.lockedDisplay)).setVisibility(View.INVISIBLE);
+		((TextView)findViewById(R.id.adminDisplay)).setText("Admin");
+		((TextView)findViewById(R.id.adminDisplay)).setVisibility(View.INVISIBLE);		
+	}
+	
+	public void changeLockedField(boolean locked) {
+		((TextView)findViewById(R.id.lockedDisplay)).setText(locked ? "Yes" : "No");
+		((TextView)findViewById(R.id.lockedDisplay)).setVisibility(View.VISIBLE);
+	}
+	
+	public void changeAdminField(boolean admin) {
 		((TextView)findViewById(R.id.adminDisplay)).setText(admin ? "Yes" : "No");
+		((TextView)findViewById(R.id.adminDisplay)).setVisibility(View.VISIBLE);
 	}
 	
 	public void lookup(View v) {
