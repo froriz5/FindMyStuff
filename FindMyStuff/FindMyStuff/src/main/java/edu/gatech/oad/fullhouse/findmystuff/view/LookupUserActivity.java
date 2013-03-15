@@ -35,6 +35,10 @@ public class LookupUserActivity extends Activity {
 		findViewById(R.id.notFoundError).setVisibility(View.VISIBLE);
 	}
 	
+	public void deleteSuccessMessage() {
+		findViewById(R.id.deleteNotification).setVisibility(View.VISIBLE);
+	}
+	
 	public void setFields(String username, String name, String email, boolean locked, boolean admin) {
 		((TextView)findViewById(R.id.usernameDisplay)).setText(username);
 		((TextView)findViewById(R.id.usernameDisplay)).setVisibility(View.VISIBLE);
@@ -71,6 +75,8 @@ public class LookupUserActivity extends Activity {
 	
 	public void lookup(View v) {
 		findViewById(R.id.notFoundError).setVisibility(View.GONE);
+		findViewById(R.id.deleteNotification).setVisibility(View.GONE);
+		removeFields();
 		String username = ((TextView)findViewById(R.id.userameEntry)).getText().toString();
 		presenter.lookupUser(username);
 	}
