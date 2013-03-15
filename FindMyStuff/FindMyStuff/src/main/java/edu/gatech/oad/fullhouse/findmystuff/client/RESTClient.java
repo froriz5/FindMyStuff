@@ -205,6 +205,29 @@ public class RESTClient<T> {
             }
         }
     }
+    
+    protected void doDelete(String query) {
+        HttpURLConnection connection = null;
+        try {
+            URL url = new URL(Settings.instance().getServerUrl() + "/" + resource + "/" + query);
+            connection = (HttpURLConnection) url.openConnection();
+            connection.setDoOutput(true);
+            connection.setRequestMethod("DELETE");
+            connection.connect();
+            connection.getResponseCode();
+            // this.retries = 0;
+        } catch (IOException ex) {
+            // this.retries++;
+            // if (this.retries >= 5) {
+            throw new RuntimeException(ex);
+            // }
+        } finally {
+            if (connection != null) {
+                connection.disconnect();
+            }
+        }
+    }
+    
     /**
      * Helper method to build a param string for a HTTP GET request
      * 
