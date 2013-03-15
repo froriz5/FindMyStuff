@@ -5,6 +5,8 @@ import java.util.Date;
 import android.location.Location;
 
 public class User {
+    private static final int MAX_INVALID_LOGIN_ATTEMPTS = 3;
+
     private long id;
 	private String username;
 	private String password;
@@ -12,7 +14,7 @@ public class User {
 	private String location;
 	private Date dateJoined;
 	private int loginAttempts;
-	private boolean isLocked;
+	private boolean locked;
 	private boolean admin;
 	private String emailAddress;
 	private String phoneNumber;
@@ -29,7 +31,7 @@ public class User {
 		user.location = loc;
 		user.dateJoined = new Date();
 		user.loginAttempts = 0;
-		user.isLocked = false;
+		user.locked = false;
 		user.admin = admin;
 		user.emailAddress = email;
 		user.phoneNumber = phone;
@@ -37,7 +39,7 @@ public class User {
 	}
 	
 	public boolean isLocked() {
-		return isLocked;
+		return locked;
 	}
 	
 	public boolean checkPassword(String attempt) {
@@ -45,15 +47,15 @@ public class User {
 			resetLogin();
 			return true;
 		} else {
-			loginAttempts++;
-			if (loginAttempts > 2)
-				isLocked = true;
+			if (++loginAttempts >= MAX_INVALID_LOGIN_ATTEMPTS) {
+			    locked = true;
+			}
 			return false;
 		}
 	}
 	
 	public void resetLogin() {
-		isLocked = false;
+		locked = false;
 		loginAttempts = 0;
 	}
 	

@@ -23,9 +23,14 @@ public class ServerItemAccessorImpl extends RESTClient<Item> implements ItemAcce
 
     public List<Item> getItemsForIncident(Incident incident) {
         Map<String, String> params = new HashMap<String, String>();
-        params.put("incident_id", incident.getId() + "");
-        String json = super.doGet("search", params);
-        return (List<Item>) new Gson().fromJson(json, Item.class);
+        String json = "";
+        if (incident != null) {
+            params.put("incident_id", incident.getId() + "");
+            json = super.doGet("search", params);
+            return (List<Item>) new Gson().fromJson(json, Item.class);
+        } else {
+            return super.list();
+        }
     }
 
     public void updateItem(Item item) {
