@@ -34,14 +34,11 @@ public class LookupUserActivity extends Activity {
 		((TextView)findViewById(R.id.usernameDisplay)).setText(username);
 		((TextView)findViewById(R.id.nameDisplay)).setText(name);
 		((TextView)findViewById(R.id.emailDisplay)).setText(email);
-		if (admin) {
-			((TextView)findViewById(R.id.adminDisplay)).setText("Yes");
-		} else {
-			((TextView)findViewById(R.id.adminDisplay)).setText("No");
-		}
+		((TextView)findViewById(R.id.adminDisplay)).setText(admin ? "Yes" : "No");
 	}
 	
 	public void lookup(View v) {
+		findViewById(R.id.notFoundError).setVisibility(View.GONE);
 		String username = ((TextView)findViewById(R.id.userameEntry)).getText().toString();
 		presenter.lookupUser(username);
 	}

@@ -49,7 +49,13 @@ public class LookupUserPresenter {
 			activity.userNotFoundError();
 		} else {
 			currentLookup.resetLogin();
-			accessor.updateUser(currentLookup);
+			new AsyncTask<Void, Void, Void>() {
+				@Override
+	            protected Void doInBackground(Void... params) {
+	                accessor.updateUser(currentLookup);
+	                return null;
+	            }
+			}.execute();
 		}
 	}
 	
@@ -58,7 +64,13 @@ public class LookupUserPresenter {
 			activity.userNotFoundError();
 		} else {
 			currentLookup.setAdmin(true);
-			accessor.updateUser(currentLookup);
+			new AsyncTask<Void, Void, Void>() {
+				@Override
+	            protected Void doInBackground(Void... params) {
+	                accessor.updateUser(currentLookup);
+	                return null;
+	            }
+			}.execute();
 		}
 	}
 	
@@ -66,7 +78,13 @@ public class LookupUserPresenter {
 		if (currentLookup == null) {
 			activity.userNotFoundError();
 		} else {
-			accessor.deleteUser(currentLookup);
+			new AsyncTask<Void, Void, Void>() {
+				@Override
+	            protected Void doInBackground(Void... params) {
+	                accessor.deleteUser(currentLookup);
+	                return null;
+	            }
+			}.execute();
 		}
 	}
 }
