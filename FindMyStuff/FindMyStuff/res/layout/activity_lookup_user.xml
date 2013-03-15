@@ -104,17 +104,6 @@
         android:visibility="invisible" />
 
     <TextView
-        android:id="@+id/notFoundError"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/deleteButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
-        android:text="No user was found"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:visibility="gone" />
-
-    <TextView
         android:id="@+id/adminLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -136,16 +125,6 @@
         android:visibility="invisible" />
 
     <Button
-        android:id="@+id/unlockButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/adminDisplay"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:onClick="unlock"
-        android:text="Unlock" />
-
-    <Button
         android:id="@+id/deleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -162,5 +141,36 @@
         android:layout_centerHorizontal="true"
         android:onClick="makeAdmin"
         android:text="Make Admin" />
+
+    <TextView
+        android:id="@+id/notFoundError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/adminDisplay"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:text="No user was found"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/unlockButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/notFoundError"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:onClick="unlock"
+        android:text="Unlock" />
+
+    <TextView
+        android:id="@+id/deleteNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/notFoundError"
+        android:layout_centerHorizontal="true"
+        android:text="User successfully deleted"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:visibility="gone" />
 
 </RelativeLayout>

@@ -6,6 +6,12 @@ import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerUserAccessorImpl;
 import edu.gatech.oad.fullhouse.findmystuff.model.User;
 import edu.gatech.oad.fullhouse.findmystuff.view.LookupUserActivity;
 
+/**
+ * A presenter for looking up users and changing admin privileges, unlocking, and deleting
+ * 
+ * @author Rachel Clark
+ *
+ */
 public class LookupUserPresenter {
 	private LookupUserActivity activity;
 	private User currentLookup;
@@ -16,6 +22,13 @@ public class LookupUserPresenter {
 		this.accessor = new ServerUserAccessorImpl();
 	}
 	
+	/**
+	 * Looks up a user by username. This will have display the information of the
+	 * found user in the LookupUserActivity if successful or display and error
+	 * in the LookupUserActivity if unsuccessful.
+	 * 
+	 * @param username
+	 */
 	public void lookupUser(final String username) {
 		new AsyncTask<Void, Void, User>() {
 			
@@ -44,6 +57,9 @@ public class LookupUserPresenter {
 		}.execute();
 	}
 	
+	/**
+	 * Unlocks a user if one has been looked up
+	 */
 	public void unlockUser() {
 		if (currentLookup == null) {
 			activity.userNotFoundError();
@@ -60,6 +76,9 @@ public class LookupUserPresenter {
 		}
 	}
 	
+	/**
+	 * Makes a user into an admin if one has been looked up
+	 */
 	public void makeAdmin() {
 		if (currentLookup == null) {
 			activity.userNotFoundError();
@@ -76,6 +95,9 @@ public class LookupUserPresenter {
 		}
 	}
 	
+	/**
+	 * Deletes a user if one has been looked up
+	 */
 	public void deleteUser() {
 		if (currentLookup == null) {
 			activity.userNotFoundError();
@@ -87,6 +109,11 @@ public class LookupUserPresenter {
 	                accessor.deleteUser(currentLookup);
 	                return null;
 	            }
+				
+				@Override
+				protected void onPostExecute(Void v) {
+					activity.deleteSuccessMessage();
+				}
 			}.execute();
 		}
 	}
