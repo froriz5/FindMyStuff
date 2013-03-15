@@ -41,9 +41,20 @@ public class LookupUserActivity extends Activity {
 		}
 	}
 	
-	public void lookup() {
+	public void lookup(View v) {
 		String username = ((TextView)findViewById(R.id.userameEntry)).getText().toString();
 		presenter.lookupUser(username);
 	}
-
+	
+	public void delete(View v) {
+		presenter.deleteUser();
+	}
+	
+	public void makeAdmin(View v) {
+		presenter.makeAdmin();
+	}
+	
+	public void unlock(View v) {
+		presenter.unlockUser();
+	}
 }

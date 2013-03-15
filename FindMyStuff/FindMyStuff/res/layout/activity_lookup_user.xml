@@ -47,7 +47,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/userameEntry"
         android:layout_toRightOf="@+id/userameEntry"
-        android:text="Lookup" />
+        android:text="Lookup"
+        android:onClick="lookup" />
 
     <TextView
         android:id="@+id/nameDisplay"
@@ -98,7 +99,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/makeAdminButton"
         android:layout_centerHorizontal="true"
-        android:text="Delete" />
+        android:text="Delete"
+        android:onClick="delete" />
 
     <Button
         android:id="@+id/makeAdminButton"
@@ -106,7 +108,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/unlockButton"
         android:layout_centerHorizontal="true"
-        android:text="Make Admin" />
+        android:text="Make Admin"
+        android:onClick="makeAdmin" />
 
     <TextView
         android:id="@+id/usernameDisplay"
@@ -125,7 +128,8 @@
         android:layout_below="@+id/adminDisplay"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
-        android:text="Unlock" />
+        android:text="Unlock"
+        android:onClick="unlock" />
 
     <TextView
         android:id="@+id/notFoundError"
