@@ -1,5 +1,6 @@
 package edu.gatech.oad.fullhouse.findmystuff.dao.impl;
 
+import edu.gatech.oad.fullhouse.findmystuff.dao.CategoryAccessor;
 import edu.gatech.oad.fullhouse.findmystuff.dao.IncidentAccessor;
 import edu.gatech.oad.fullhouse.findmystuff.dao.ItemAccessor;
 import edu.gatech.oad.fullhouse.findmystuff.dao.UserAccessor;
@@ -12,6 +13,10 @@ import edu.gatech.oad.fullhouse.findmystuff.dao.UserAccessor;
  *
  */
 public class ServerAccessorFactory {
+
+    public static CategoryAccessor getCategoryAccessor() {
+        return new ServerCategoryAccessorImpl();
+    }
 
     public static IncidentAccessor getIncidentAccessor() {
         return new ServerIncidentAccessorImpl();
