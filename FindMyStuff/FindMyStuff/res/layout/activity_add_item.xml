@@ -12,12 +12,12 @@
         <requestFocus />
     </EditText>
 
-    <EditText
+    <Spinner
         android:id="@+id/addItemCategoryField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/category"
-        android:ems="10" />
+        android:entries="@array/category_arrays"
+        android:prompt="@string/category_prompt" />
 
     <Spinner
         android:id="@+id/addItemFeature"

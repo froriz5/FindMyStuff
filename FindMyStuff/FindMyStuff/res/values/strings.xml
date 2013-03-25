@@ -32,6 +32,7 @@
     <string name="add_item">Add Item</string>
     <string name="cancel">Cancel</string>
     <string name="status_prompt">Choose Status</string>
+    <string name="category_prompt">Category</string>
 
     <string-array name="features_arrays">
         <item>Public</item>
@@ -42,7 +43,14 @@
         <item>Lost</item>
         <item>Found</item>
         <item>Donated</item>
-        </string-array>
+    </string-array>
+    
+    <string-array name="category_arrays">
+        <item>Appliances</item>
+        <item>Books</item>
+        <item>Electronics</item>
+        <item>Sports and Outdoors</item>
+    </string-array>
 
     <string name="title_activity_activity_view_items_list">Activity_view_items_list</string>
     <string name="title_activity_view__items__list">View_Items_List</string>
