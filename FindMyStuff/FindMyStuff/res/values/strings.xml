@@ -38,13 +38,11 @@
         <item>Public</item>
         <item>Private</item>
     </string-array>
-
     <string-array name="status_arrays">
         <item>Lost</item>
         <item>Found</item>
         <item>Donated</item>
     </string-array>
-    
     <string-array name="category_arrays">
         <item>Appliances</item>
         <item>Books</item>
@@ -56,5 +54,6 @@
     <string name="title_activity_view__items__list">View_Items_List</string>
     <string name="title_activity_add_item">AddItemActivity</string>
     <string name="title_activity_lookup_user">LookupUserActivity</string>
+    <string name="title_activity_search_view">SearchView</string>
 
 </resources>

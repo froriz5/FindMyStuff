@@ -21,24 +21,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.RegisterActivity"
+            android:name="edu.gatech.oad.fullhouse.findmystuff.view.RegisterActivity"
             android:label="@string/title_activity_register" >
         </activity>
         <activity
-            android:name=".view.AddItemActivity"
+            android:name="edu.gatech.oad.fullhouse.findmystuff.view.AddItemActivity"
             android:label="@string/title_activity_add_item" >
         </activity>
         <activity
-            android:name=".view.ViewItemsActivity"
+            android:name="edu.gatech.oad.fullhouse.findmystuff.view.ViewItemsActivity"
             android:label="@string/title_activity_view__items__list" >
         </activity>
         <activity
-            android:name=".view.DashboardActivity"
+            android:name="edu.gatech.oad.fullhouse.findmystuff.view.DashboardActivity"
             android:label="@string/title_activity_dashboard" >
         </activity>
         <activity
-            android:name=".view.LookupUserActivity"
+            android:name="edu.gatech.oad.fullhouse.findmystuff.view.LookupUserActivity"
             android:label="@string/title_activity_lookup_user" >
+        </activity>
+        <activity
+            android:name="edu.gatech.oad.fullhouse.findmystuff.SearchView"
+            android:label="@string/title_activity_search_view" >
         </activity>
     </application>
 
