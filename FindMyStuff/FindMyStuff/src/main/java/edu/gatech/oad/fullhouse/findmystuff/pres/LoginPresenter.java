@@ -2,6 +2,7 @@ package edu.gatech.oad.fullhouse.findmystuff.pres;
 
 import android.os.AsyncTask;
 import edu.gatech.oad.fullhouse.findmystuff.dao.UserAccessor;
+import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerAccessorFactory;
 import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerUserAccessorImpl;
 import edu.gatech.oad.fullhouse.findmystuff.model.Session;
 import edu.gatech.oad.fullhouse.findmystuff.model.User;
@@ -22,7 +23,7 @@ public class LoginPresenter {
 	
 	public LoginPresenter(LoginActivity activ) {
 		activity = activ;
-		accessor = new ServerUserAccessorImpl();
+		accessor = ServerAccessorFactory.getUserAccessor();
 	}
 	
 	/**
