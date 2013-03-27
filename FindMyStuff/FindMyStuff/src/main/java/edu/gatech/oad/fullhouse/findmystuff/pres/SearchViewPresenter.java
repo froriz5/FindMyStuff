@@ -3,7 +3,6 @@ package edu.gatech.oad.fullhouse.findmystuff.pres;
 import edu.gatech.oad.fullhouse.findmystuff.dao.ItemAccessor;
 import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerAccessorFactory;
 import edu.gatech.oad.fullhouse.findmystuff.view.SearchViewActivity;
-import edu.gatech.oad.fullhouse.findmystuff.view.ViewItemsActivity;
 
 public class SearchViewPresenter {
 
@@ -14,5 +13,4 @@ public class SearchViewPresenter {
 		activity = activ;
 		this.accessor = ServerAccessorFactory.getItemAccessor();
 	}
-	
 }
