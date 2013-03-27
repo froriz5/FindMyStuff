@@ -41,5 +41,10 @@ public class DashboardActivity extends Activity {
 		Intent intent = new Intent(this, LookupUserActivity.class);
 		startActivity(intent);
 	}
+	
+	public void searchView(View v) {
+		Intent intent = new Intent(this, SearchViewActivity.class);
+		startActivity(intent);
+	}
 
 }
