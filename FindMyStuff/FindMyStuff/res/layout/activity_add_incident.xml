@@ -64,12 +64,14 @@
         android:id="@+id/addIncidentAddButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="doAddIncident"
         android:text="@string/add_incident" />
 
     <Button
         android:id="@+id/addIncidentCancelButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="finish"
         android:text="@string/cancel" />
 
 </LinearLayout>

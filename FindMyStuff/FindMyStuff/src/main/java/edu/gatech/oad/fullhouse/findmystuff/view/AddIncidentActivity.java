@@ -31,25 +31,7 @@ public class AddIncidentActivity extends Activity{
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setProgressBarIndeterminateVisibility(false);        
 
-        setContentView(R.layout.activity_add_incident);
-        Button btn;	
-        btn = (Button)findViewById(R.id.addIncidentAddButton);
-		btn.setOnClickListener(new OnClickListener() {
-
-            public void onClick(View v) {
-                doAddIncident();
-            }
-		});
-		
-		btn = (Button)findViewById(R.id.addIncidentCancelButton);
-	    btn.setOnClickListener(new OnClickListener() {
-
-            public void onClick(View v) {
-                finish();
-            }
-
-	    });
-	        
+        setContentView(R.layout.activity_add_incident);  
         this.pres = new AddIncidentPresenter(this);
 	}
 
