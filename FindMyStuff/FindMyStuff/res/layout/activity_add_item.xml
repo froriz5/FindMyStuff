@@ -32,12 +32,11 @@
         android:layout_height="wrap_content"
         android:text="@string/add_feature" />
 
-    <EditText
-        android:id="@+id/addItemIncidentField"
+    <Spinner
+        android:id="@+id/addItemIncident"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/incident"
-        android:ems="10" />
+        android:prompt="@string/incident_prompt" />
 
     <Spinner
         android:id="@+id/addItemStatus"
