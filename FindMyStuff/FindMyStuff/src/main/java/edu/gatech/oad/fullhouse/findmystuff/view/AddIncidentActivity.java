@@ -2,6 +2,7 @@ package edu.gatech.oad.fullhouse.findmystuff.view;
 
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.util.Calendar;
 import java.util.Date;
 
 import edu.gatech.oad.fullhouse.findmystuff.R;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.TextView;
 
 public class AddIncidentActivity extends Activity{
@@ -45,25 +47,36 @@ public class AddIncidentActivity extends Activity{
 	private void doAddIncident(){
 		
 		User user = Session.instance().getLoggedInUser();
-		String dateString = ((TextView)findViewById(R.id.addIncidentDateField)).getText().toString();
-		DateFormat df = DateFormat.getDateInstance();
-		Date date = new Date();
-		try {
-			date = df.parse(dateString);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		String title = ((TextView)findViewById(R.id.addIncidentTitleField)).getText().toString();
 		String city = ((TextView)findViewById(R.id.addIncidentCityField)).getText().toString();
 		String state = ((TextView)findViewById(R.id.addIncidentStateField)).getText().toString();
 		String location = city + ", " + state;
+		Date date = getDateFromDatePicker((DatePicker)findViewById(R.id.addIncidentDatePicker));
+		
 		Incident incident = new Incident();
-		incident.setIncidentDate(date);
+		incident.setIncidentTitle(title);
 		incident.setIncidentLocation(location);
+		incident.setIncidentDate(date);
 		incident.setUser(user);
 		
 		pres.addIncident(incident);
 		incidentAdded = true;
+	}
+	
+	/**
+	 * 
+	 * @param datePicker
+	 * @return a java.util.Date
+	 */
+	public static java.util.Date getDateFromDatePicker(DatePicker datePicker){
+	    int day = datePicker.getDayOfMonth();
+	    int month = datePicker.getMonth();
+	    int year =  datePicker.getYear();
+
+	    Calendar calendar = Calendar.getInstance();
+	    calendar.set(year, month, day);
+
+	    return calendar.getTime();
 	}
 	
 	@Override

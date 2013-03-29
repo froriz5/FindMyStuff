@@ -33,6 +33,7 @@
     <string name="cancel">Cancel</string>
     <string name="status_prompt">Choose Status</string>
     <string name="category_prompt">Category</string>
+    <string name="search">Search</string>
 
     <string-array name="features_arrays">
         <item>Public</item>
@@ -55,11 +56,13 @@
     <string name="title_activity_add_item">AddItemActivity</string>
     <string name="title_activity_lookup_user">LookupUserActivity</string>
     <string name="title_activity_search_view">SearchView</string>
+    <string name="title_activity_add_incident">AddIncidentActivity</string>
     <string name="incident_date">Incident Date:</string>
     <string name="incident_location">Indicent Location:</string>
     <string name="incident_prompt">Add to Incident</string>
     <string name="add_incident">Add Incident</string>
     <string name="date_mmddyyyy">mm/dd/yyyy</string>
     <string name="new_incident">New Incident</string>
+    <string name="incident_title">Incident Title:</string>
 
 </resources>
