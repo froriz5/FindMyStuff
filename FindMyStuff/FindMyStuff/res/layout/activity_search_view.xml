@@ -24,20 +24,20 @@
         android:id="@+id/addItemFeature"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/features_arrays"
-        android:prompt="@string/feature_prompt" />
-
-    <Spinner
-        android:id="@+id/addItemStatus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:entries="@array/status_arrays"
         android:prompt="@string/status_prompt" />
+
 
     <DatePicker
         android:id="@+id/addIncidentDatePicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" 
         android:calendarViewShown="false"/>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/search" />
 
 </LinearLayout>
