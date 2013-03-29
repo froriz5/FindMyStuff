@@ -1,12 +1,5 @@
 package edu.gatech.oad.fullhouse.findmystuff.pres;
 
-import edu.gatech.oad.fullhouse.findmystuff.dao.IncidentAccessor;
-import edu.gatech.oad.fullhouse.findmystuff.dao.ItemAccessor;
-import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerAccessorFactory;
-import edu.gatech.oad.fullhouse.findmystuff.model.Item;
-import edu.gatech.oad.fullhouse.findmystuff.model.Session;
-import edu.gatech.oad.fullhouse.findmystuff.model.User;
-import edu.gatech.oad.fullhouse.findmystuff.view.AddItemActivity;
 import edu.gatech.oad.fullhouse.findmystuff.view.SearchResultsActivity;
 
 public class SearchResultsPresenter {
@@ -23,4 +16,6 @@ public class SearchResultsPresenter {
         //incidentAccessor = ServerAccessorFactory.getIncidentAccessor();
         //user = Session.instance().getLoggedInUser();
     }
+	
+	
 }

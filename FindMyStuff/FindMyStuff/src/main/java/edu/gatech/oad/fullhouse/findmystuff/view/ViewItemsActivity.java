@@ -3,7 +3,7 @@ package edu.gatech.oad.fullhouse.findmystuff.view;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.R;
+import edu.gatech.oad.fullhouse.findmystuff.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
