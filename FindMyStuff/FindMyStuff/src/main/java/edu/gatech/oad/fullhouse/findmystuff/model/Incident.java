@@ -14,6 +14,8 @@ public class Incident {
     private long id;
     
     private Date incidentDate;
+    
+    private String incidentLocation;
 
     private User user;
 
@@ -31,6 +33,14 @@ public class Incident {
 
     public void setIncidentDate(Date incidentDate) {
         this.incidentDate = incidentDate;
+    }
+    
+    public String getIncidentLocation() {
+    	return incidentLocation;
+    }
+    
+    public void setIncidentLocation(String loc) {
+    	this.incidentLocation = loc;
     }
 
     public User getUser() {
