@@ -7,8 +7,9 @@
         android:id="@+id/addItemNameField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/name" 
-        android:ems="10">
+        android:ems="10"
+        android:hint="@string/name" >
+
         <requestFocus />
     </EditText>
 
@@ -26,42 +27,17 @@
         android:entries="@array/features_arrays"
         android:prompt="@string/feature_prompt" />
 
-    <Button
-        android:id="@+id/addItemAddFeature"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/add_feature" />
-
-    <Spinner
-        android:id="@+id/addItemIncident"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:prompt="@string/incident_prompt" />
-
     <Spinner
         android:id="@+id/addItemStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/status_arrays"
         android:prompt="@string/status_prompt" />
-    
-    <EditText
-        android:id="@+id/addItemLocationField"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/location"
-        android:ems="10" />
-    
-    <Button
-        android:id="@+id/addItemAddButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/add_item" />
 
-    <Button
-        android:id="@+id/addItemCancelButton"
+    <DatePicker
+        android:id="@+id/datePicker1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/cancel" />
+        android:layout_height="wrap_content" 
+        android:calendarViewShown="false"/>
 
 </LinearLayout>

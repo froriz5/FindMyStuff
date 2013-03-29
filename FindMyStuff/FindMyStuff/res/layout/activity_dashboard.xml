@@ -1,47 +1,42 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DashboardActivity" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
 
     <Button
         android:id="@+id/viewItemsButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="23dp"
-        android:layout_marginTop="14dp"
         android:onClick="viewItems"
         android:text="View Items" />
 
     <Button
         android:id="@+id/newItemButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/viewItemsButton"
-        android:layout_below="@+id/viewItemsButton"
-        android:layout_marginTop="14dp"
         android:onClick="addItem"
         android:text="New Item" />
 
     <Button
         android:id="@+id/newIncidentButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/newItemButton"
-        android:layout_below="@+id/newItemButton"
-        android:layout_marginTop="18dp"
+        android:onClick="newIncident"
         android:text="New Incident" />
 
     <Button
         android:id="@+id/lookupUserButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/newIncidentButton"
-        android:layout_centerVertical="true"
         android:onClick="lookupUser"
         android:text="Lookup User"
         android:visibility="gone" />
+    
+    <Button
+        android:id="@+id/searchViewButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="searchView"
+        android:text="Search" />
 
-</RelativeLayout>
+</LinearLayout>

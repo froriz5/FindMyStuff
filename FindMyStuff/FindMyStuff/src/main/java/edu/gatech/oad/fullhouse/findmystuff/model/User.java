@@ -2,7 +2,6 @@ package edu.gatech.oad.fullhouse.findmystuff.model;
 
 import java.util.Date;
 
-import android.location.Location;
 
 public class User {
     private static final int MAX_INVALID_LOGIN_ATTEMPTS = 3;
