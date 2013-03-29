@@ -3,6 +3,7 @@ package edu.gatech.oad.fullhouse.findmystuff.view;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +12,6 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import edu.gatech.oad.fullhouse.findmystuff.R;
 import edu.gatech.oad.fullhouse.findmystuff.model.Item;
 import edu.gatech.oad.fullhouse.findmystuff.pres.ViewItemsPresenter;
 import edu.gatech.oad.fullhouse.findmystuff.util.Transitioner;

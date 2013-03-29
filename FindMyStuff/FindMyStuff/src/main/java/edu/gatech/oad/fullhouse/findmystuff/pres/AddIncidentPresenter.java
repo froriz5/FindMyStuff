@@ -4,7 +4,6 @@ import android.os.AsyncTask;
 import edu.gatech.oad.fullhouse.findmystuff.dao.IncidentAccessor;
 import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerAccessorFactory;
 import edu.gatech.oad.fullhouse.findmystuff.model.Incident;
-import edu.gatech.oad.fullhouse.findmystuff.model.Item;
 import edu.gatech.oad.fullhouse.findmystuff.view.AddIncidentActivity;
 
 public class AddIncidentPresenter {

@@ -9,7 +9,6 @@ import com.google.gson.Gson;
 import edu.gatech.oad.fullhouse.findmystuff.client.RESTClient;
 import edu.gatech.oad.fullhouse.findmystuff.dao.IncidentAccessor;
 import edu.gatech.oad.fullhouse.findmystuff.model.Incident;
-import edu.gatech.oad.fullhouse.findmystuff.model.Item;
 import edu.gatech.oad.fullhouse.findmystuff.model.User;
 
 public class ServerIncidentAccessorImpl extends RESTClient<Incident> implements IncidentAccessor {

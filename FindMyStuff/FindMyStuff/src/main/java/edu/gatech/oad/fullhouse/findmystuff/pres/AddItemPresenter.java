@@ -2,12 +2,7 @@ package edu.gatech.oad.fullhouse.findmystuff.pres;
 
 import java.util.List;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.AsyncTask;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import edu.gatech.oad.fullhouse.findmystuff.R;
 import edu.gatech.oad.fullhouse.findmystuff.dao.IncidentAccessor;
 import edu.gatech.oad.fullhouse.findmystuff.dao.ItemAccessor;
 import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerAccessorFactory;

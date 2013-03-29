@@ -8,7 +8,6 @@ import edu.gatech.oad.fullhouse.findmystuff.model.User;
 import edu.gatech.oad.fullhouse.findmystuff.util.Transitioner;
 import edu.gatech.oad.fullhouse.findmystuff.view.DashboardActivity;
 import edu.gatech.oad.fullhouse.findmystuff.view.LoginActivity;
-import edu.gatech.oad.fullhouse.findmystuff.view.ViewItemsActivity;
 
 /**
  * A presenter for login screens, that handles logging in/checking the password

@@ -1,11 +1,9 @@
 package edu.gatech.oad.fullhouse.findmystuff.view;
 
+import android.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
-import edu.gatech.oad.fullhouse.findmystuff.R;
-import edu.gatech.oad.fullhouse.findmystuff.R.layout;
-import edu.gatech.oad.fullhouse.findmystuff.client.RESTClient;
 import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerUserAccessorImpl;
 import edu.gatech.oad.fullhouse.findmystuff.model.Settings;
 import edu.gatech.oad.fullhouse.findmystuff.model.User;

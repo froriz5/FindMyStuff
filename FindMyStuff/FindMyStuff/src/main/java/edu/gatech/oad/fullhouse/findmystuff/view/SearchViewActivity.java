@@ -1,11 +1,10 @@
 package edu.gatech.oad.fullhouse.findmystuff.view;
 
+import android.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.Window;
-import edu.gatech.oad.fullhouse.findmystuff.R;
-import edu.gatech.oad.fullhouse.findmystuff.pres.ViewItemsPresenter;
 
 public class SearchViewActivity extends Activity{
 
