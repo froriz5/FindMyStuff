@@ -58,16 +58,17 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/addIncidentDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/incident_date"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <DatePicker
         android:id="@+id/addIncidentDatePicker"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <DatePicker
-            android:id="@+id/addIncidentDatePicker"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/addIncidentAddButton"
