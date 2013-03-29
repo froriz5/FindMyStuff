@@ -66,12 +66,11 @@ public class AddItemActivity extends Activity {
 		this.incidents = incidents;
     	// Display User's Incidents in Incident Spinner
         int numIncidents = incidents.size();
-        String[] incidents_array = new String[numIncidents + 1];
+        String[] incidents_array = new String[numIncidents];
         for(int i = 0; i < numIncidents; i++) {
-        	incidents_array[i] = incidents.get(i).getIncidentDate().toString();
+        	incidents_array[i] = incidents.get(i).getIncidentTitle();
         }
-        //
-        incidents_array[numIncidents] = "New Incident";
+        
         ((Spinner)findViewById(R.id.addItemIncident)).setAdapter(new ArrayAdapter<String>(AddItemActivity.this, android.R.layout.simple_dropdown_item_1line, incidents_array));
     }
 	
@@ -87,18 +86,11 @@ public class AddItemActivity extends Activity {
 		item.setCategory(category);
 		//item.setFeatures(features);
 		
-		// Get the selected incident, or create a new incident
+		// Get the selected incident
 		Incident incident = new Incident();
-		if(incidentString.equals("New Incident")) { 
-			// TODO transition to AddIncidentActivity
-			// incident = 
-		}
-		else{
-			// TODO MAKE THIS BETTER
-			for(Incident i : incidents) {
-				if(i.getIncidentDate().equals(incidentString)) {
-					incident = incidents.get(incidents.indexOf(i));
-				}
+		for(Incident i : incidents) {
+			if(i.getIncidentTitle().equals(incidentString)) {
+				incident = i;
 			}
 		}
 		item.setIncident(incident);

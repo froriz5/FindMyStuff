@@ -61,5 +61,6 @@
     <string name="add_incident">Add Incident</string>
     <string name="date_mmddyyyy">mm/dd/yyyy</string>
     <string name="new_incident">New Incident</string>
+    <string name="incident_title">Incident Title:</string>
 
 </resources>

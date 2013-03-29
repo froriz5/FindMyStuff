@@ -35,7 +35,7 @@
         android:prompt="@string/status_prompt" />
 
     <DatePicker
-        android:id="@+id/datePicker1"
+        android:id="@+id/addIncidentDatePicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" 
         android:calendarViewShown="false"/>
