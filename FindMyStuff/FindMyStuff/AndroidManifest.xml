@@ -44,6 +44,10 @@
             android:name=".view.SearchViewActivity"
             android:label="@string/title_activity_search_view" >
         </activity>
+        <activity
+            android:name=".view.AddIncidentActivity"
+            android:label="@string/title_activity_add_incident" >
+        </activity>
     </application>
 
 </manifest>
