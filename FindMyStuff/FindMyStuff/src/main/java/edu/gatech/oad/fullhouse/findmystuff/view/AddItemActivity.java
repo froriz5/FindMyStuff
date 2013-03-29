@@ -72,7 +72,7 @@ public class AddItemActivity extends Activity {
         }
         //
         incidents_array[numIncidents] = "New Incident";
-        ((Spinner)findViewById(R.id.addItemIncident)).setAdapter(new ArrayAdapter<String>(AddItemActivity.this, 0, incidents_array));
+        ((Spinner)findViewById(R.id.addItemIncident)).setAdapter(new ArrayAdapter<String>(AddItemActivity.this, android.R.layout.simple_dropdown_item_1line, incidents_array));
     }
 	
 	private void doAddItem() {
