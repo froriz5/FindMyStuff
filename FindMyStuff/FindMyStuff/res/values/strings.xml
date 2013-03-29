@@ -64,10 +64,8 @@
     <string name="add_incident">Add Incident</string>
     <string name="date_mmddyyyy">mm/dd/yyyy</string>
     <string name="new_incident">New Incident</string>
-<<<<<<< HEAD
     <string name="title_activity_search_results">SearchResults</string>
-=======
     <string name="incident_title">Incident Title:</string>
->>>>>>> 9ba282eb27cca90c53b860cc5174d5d2e0129ded
+
 
 </resources>
