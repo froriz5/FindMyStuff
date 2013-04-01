@@ -34,6 +34,7 @@
     <string name="status_prompt">Choose Status</string>
     <string name="category_prompt">Category</string>
     <string name="search">Search</string>
+    <string name="search_results">Search Results</string>
 
     <string-array name="features_arrays">
         <item>Public</item>
@@ -63,6 +64,8 @@
     <string name="add_incident">Add Incident</string>
     <string name="date_mmddyyyy">mm/dd/yyyy</string>
     <string name="new_incident">New Incident</string>
+    <string name="title_activity_search_results">SearchResults</string>
     <string name="incident_title">Incident Title:</string>
+
 
 </resources>

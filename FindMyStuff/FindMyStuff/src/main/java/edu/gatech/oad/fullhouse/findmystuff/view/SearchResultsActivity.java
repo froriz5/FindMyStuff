@@ -1,13 +1,13 @@
 package edu.gatech.oad.fullhouse.findmystuff.view;
 
-import edu.gatech.oad.fullhouse.findmystuff.R;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.Window;
+import edu.gatech.oad.fullhouse.findmystuff.R;
 
-public class SearchViewActivity extends Activity{
-
+public class SearchResultsActivity extends Activity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,7 +15,7 @@ public class SearchViewActivity extends Activity{
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setProgressBarIndeterminateVisibility(false);        
 
-        setContentView(R.layout.activity_search_view);
+        setContentView(R.layout.activity_search_results);
         //this.presenter = new ViewItemsPresenter(this);
     }
 	

@@ -45,7 +45,8 @@
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/add_incident" />
+        android:onClick="newIncident"
+        android:text="@string/new_incident" />
 
     <Spinner
         android:id="@+id/addItemStatus"

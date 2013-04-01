@@ -2,7 +2,9 @@ package edu.gatech.oad.fullhouse.findmystuff.view;
 
 import java.util.List;
 
+import edu.gatech.oad.fullhouse.findmystuff.R;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -12,12 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import edu.gatech.oad.fullhouse.findmystuff.R;
-import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerAccessorFactory;
 import edu.gatech.oad.fullhouse.findmystuff.model.Incident;
 import edu.gatech.oad.fullhouse.findmystuff.model.Item;
-import edu.gatech.oad.fullhouse.findmystuff.model.Session;
-import edu.gatech.oad.fullhouse.findmystuff.model.User;
 import edu.gatech.oad.fullhouse.findmystuff.pres.AddItemPresenter;
 
 public class AddItemActivity extends Activity {
@@ -99,6 +97,11 @@ public class AddItemActivity extends Activity {
 		itemAdded = true;
 	}
 
+	public void newIncident(View v) {
+		Intent intent = new Intent(this, AddIncidentActivity.class);
+		startActivity(intent);
+	}
+	
 	@Override
 	public void finish() {
         if (itemAdded) {

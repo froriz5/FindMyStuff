@@ -1,24 +1,19 @@
 package edu.gatech.oad.fullhouse.findmystuff.view;
 
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 
 import edu.gatech.oad.fullhouse.findmystuff.R;
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.Window;
+import android.widget.DatePicker;
+import android.widget.TextView;
 import edu.gatech.oad.fullhouse.findmystuff.model.Incident;
 import edu.gatech.oad.fullhouse.findmystuff.model.Session;
 import edu.gatech.oad.fullhouse.findmystuff.model.User;
 import edu.gatech.oad.fullhouse.findmystuff.pres.AddIncidentPresenter;
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.View;
-import android.view.Window;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.TextView;
 
 public class AddIncidentActivity extends Activity{
 	
