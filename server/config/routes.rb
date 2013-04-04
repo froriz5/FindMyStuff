@@ -1,12 +1,20 @@
 Server::Application.routes.draw do
   resources :categories
 
-  resources :items
+  resources :items do
+    collection do
+      get 'search'
+    end
+  end
 
   resources :item_features
 
-  resources :incidents
-
+  resources :incidents do
+    collection do
+      get 'search'
+    end
+  end
+  
   resources :users do
     collection do
       get 'search'

@@ -21,6 +21,20 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+
+    items = Item.where(request.query_parameters)
+    if !items.empty?
+      @item = items[0];
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @items }
+      end
+    else
+     # TODO handle errors gracefully...currently, we just raise a 500  
+    end
+  end
+
   # GET /items/new
   # GET /items/new.json
   def new
