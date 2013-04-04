@@ -37,6 +37,7 @@ public class SearchViewPresenter {
 	}
 
     public void loadSearchForm() {
+        this.activity.setProgressBarIndeterminateVisibility(true); 
         new AsyncTask<Void, Void, List<Category>>() {
 
             @Override
@@ -45,6 +46,7 @@ public class SearchViewPresenter {
             }
             
             protected void onPostExecute(List<Category> categories) {
+                activity.setProgressBarIndeterminateVisibility(false); 
                 activity.showSearchForm(categories);
             }
         }.execute();
