@@ -2,7 +2,8 @@ package edu.gatech.oad.fullhouse.findmystuff.pres;
 
 import android.os.AsyncTask;
 import edu.gatech.oad.fullhouse.findmystuff.dao.UserAccessor;
-import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerUserAccessorImpl;
+import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerAccessorFactory;
+import edu.gatech.oad.fullhouse.findmystuff.model.Session;
 import edu.gatech.oad.fullhouse.findmystuff.model.User;
 import edu.gatech.oad.fullhouse.findmystuff.view.LookupUserActivity;
 
@@ -19,7 +20,7 @@ public class LookupUserPresenter {
 	
 	public LookupUserPresenter(LookupUserActivity activ) {
 		this.activity = activ;
-		this.accessor = new ServerUserAccessorImpl();
+		this.accessor = ServerAccessorFactory.getUserAccessor();
 	}
 	
 	/**
@@ -105,6 +106,9 @@ public class LookupUserPresenter {
 		if (currentLookup == null) {
 			activity.userNotFoundError();
 		} else {
+			String currentUsername = Session.instance().getLoggedInUser().getUsername();
+			if (currentLookup.getUsername().equals(currentUsername))
+				return;
 			activity.removeFields();
 			new AsyncTask<Void, Void, Void>() {
 				@Override

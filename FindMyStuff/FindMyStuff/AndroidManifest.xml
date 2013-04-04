@@ -41,8 +41,16 @@
             android:label="@string/title_activity_lookup_user" >
         </activity>
         <activity
-            android:name=".view.SearchViewActivity"
+            android:name="edu.gatech.oad.fullhouse.findmystuff.view.SearchViewActivity"
             android:label="@string/title_activity_search_view" >
+        </activity>
+        <activity
+            android:name="edu.gatech.oad.fullhouse.findmystuff.view.AddIncidentActivity"
+            android:label="@string/title_activity_add_incident" >
+        </activity>
+        <activity
+            android:name="edu.gatech.oad.fullhouse.findmystuff.SearchResultsActivity"
+            android:label="@string/title_activity_search_results" >
         </activity>
     </application>
 

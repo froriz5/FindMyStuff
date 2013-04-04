@@ -1,7 +1,6 @@
 package edu.gatech.oad.fullhouse.findmystuff.model;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * This class represents an incident, which represents a set of items lost on a certain date.
@@ -16,6 +15,8 @@ public class Incident {
     private Date incidentDate;
     
     private String incidentLocation;
+    
+    private String title;
 
     private User user;
 
@@ -43,6 +44,14 @@ public class Incident {
     	this.incidentLocation = loc;
     }
 
+    public String getIncidentTitle() {
+    	return title;
+    }
+    
+    public void setIncidentTitle(String title) {
+    	this.title = title;
+    }
+    
     public User getUser() {
         return user;
     }

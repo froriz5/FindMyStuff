@@ -1,5 +1,6 @@
 package edu.gatech.oad.fullhouse.findmystuff.view;
 
+import edu.gatech.oad.fullhouse.findmystuff.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,10 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
-import edu.gatech.oad.fullhouse.findmystuff.R;
-import edu.gatech.oad.fullhouse.findmystuff.model.Session;
 import edu.gatech.oad.fullhouse.findmystuff.model.Settings;
-import edu.gatech.oad.fullhouse.findmystuff.model.User;
 import edu.gatech.oad.fullhouse.findmystuff.pres.LoginPresenter;
 
 public class LoginActivity extends Activity {

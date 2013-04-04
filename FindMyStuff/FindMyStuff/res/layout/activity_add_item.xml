@@ -1,16 +1,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    tools:context=".view.AddItemActivity" >
 
     <EditText
         android:id="@+id/addItemNameField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/name" 
-        android:ems="10">
-        <requestFocus />
+        android:ems="10"
+        android:hint="@string/name" >
     </EditText>
+
+    
 
     <Spinner
         android:id="@+id/addItemCategoryField"
@@ -37,6 +40,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:prompt="@string/incident_prompt" />
+    
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="newIncident"
+        android:text="@string/new_incident" />
 
     <Spinner
         android:id="@+id/addItemStatus"
@@ -44,14 +54,14 @@
         android:layout_height="wrap_content"
         android:entries="@array/status_arrays"
         android:prompt="@string/status_prompt" />
-    
+
     <EditText
         android:id="@+id/addItemLocationField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/location"
-        android:ems="10" />
-    
+        android:ems="10"
+        android:hint="@string/location" />
+
     <Button
         android:id="@+id/addItemAddButton"
         android:layout_width="match_parent"
