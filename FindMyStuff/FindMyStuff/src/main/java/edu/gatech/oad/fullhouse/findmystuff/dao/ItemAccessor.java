@@ -41,4 +41,17 @@ public interface ItemAccessor {
      * @param item
      */
     public void deleteItem(Item item);
+    
+    /**
+     * Search for items that match the specified criteria.  Note, one or more of
+     * the criteria may be null, in which case that criterion is not considered.
+     * If all criteria is null, the method will return all available items.
+     * 
+     * @param name
+     * @param category
+     * @param status
+     * @param date
+     * @return
+     */
+    public List<Item> searchForItems(String name, String category, String status, String date);
 }

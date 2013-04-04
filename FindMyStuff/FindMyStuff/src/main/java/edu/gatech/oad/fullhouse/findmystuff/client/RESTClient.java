@@ -71,7 +71,12 @@ public class RESTClient<T> {
             }
         }
         builder.append("s");
-        return builder.toString();
+        String resName = builder.toString();
+        if (resName.endsWith("ys")) {
+            int ys = resName.lastIndexOf("ys");
+            resName = resName.substring(0, ys) + "ies";
+        }
+        return resName;
     }
 
     public RESTClient(Class<T> objectClass, String resource) {

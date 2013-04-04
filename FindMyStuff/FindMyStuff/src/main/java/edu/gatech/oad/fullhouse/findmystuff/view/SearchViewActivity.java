@@ -1,11 +1,19 @@
 package edu.gatech.oad.fullhouse.findmystuff.view;
 
+import java.util.List;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
 import edu.gatech.oad.fullhouse.findmystuff.R;
+import edu.gatech.oad.fullhouse.findmystuff.model.Category;
 import edu.gatech.oad.fullhouse.findmystuff.pres.SearchViewPresenter;
 
 public class SearchViewActivity extends Activity{
@@ -21,6 +29,15 @@ public class SearchViewActivity extends Activity{
 
         setContentView(R.layout.activity_search_view);
         this.presenter = new SearchViewPresenter(this);
+        
+        ((Button)findViewById(R.id.searchItemButton)).setOnClickListener(new OnClickListener() {
+
+            public void onClick(View v) {
+                doSearch(v);
+            }
+            
+        });
+        presenter.loadSearchForm();
     }
 	
 	@Override
@@ -30,12 +47,26 @@ public class SearchViewActivity extends Activity{
         return true;
     }
 	
+	@Override
+	protected void onResume() {
+	    super.onResume();
+	}
+	
+	public void showSearchForm(List<Category> categories) {
+	    Spinner catSpin = (Spinner)findViewById(R.id.searchItemCategory);
+	    String[] catStrings = new String[categories.size()];
+	    for (int ii = 0; ii < categories.size(); ii++) {
+	        catStrings[ii] = categories.get(ii).getName();
+	    }
+	    catSpin.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, catStrings));
+	}
+
 	public void doSearch(View v) {
 		// TODO Implement
-		String name = null;
-		String feature = null;
-		String status = null;
-		String date = null;
-		presenter.searchItems(name, feature, status, date);
+		String name     = ((TextView)findViewById(R.id.searchItemName)).getText().toString();
+		String category = ((Spinner)findViewById(R.id.searchItemCategory)).getSelectedItem().toString();
+		String status   = ((Spinner)findViewById(R.id.searchItemStatus)).getSelectedItem().toString();
+		String date     = null;
+		presenter.searchItems(name, category, status, date);
 	}
 }

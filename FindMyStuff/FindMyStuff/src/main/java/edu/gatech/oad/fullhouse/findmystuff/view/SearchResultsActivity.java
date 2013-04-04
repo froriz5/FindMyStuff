@@ -7,6 +7,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.Window;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import edu.gatech.oad.fullhouse.findmystuff.R;
 import edu.gatech.oad.fullhouse.findmystuff.model.Item;
 import edu.gatech.oad.fullhouse.findmystuff.pres.SearchResultsPresenter;
@@ -41,6 +43,11 @@ public class SearchResultsActivity extends Activity{
     }
 	
 	public void displayItems(List<Item> items) {
-		// TODO Implement
+	    ListView lv = (ListView)this.findViewById(R.id.itemListFoundView);
+	    String[] foundStrs = new String[items.size()];
+	    for (int ii = 0; ii < items.size(); ii++) {
+	        foundStrs[ii] = items.get(ii).getName();
+	    }
+	    lv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, foundStrs));
 	}
 }

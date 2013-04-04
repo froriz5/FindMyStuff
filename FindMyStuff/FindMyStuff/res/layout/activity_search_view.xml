@@ -4,7 +4,7 @@
     android:orientation="vertical" >
 
     <EditText
-        android:id="@+id/addItemNameField"
+        android:id="@+id/searchItemName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -14,14 +14,13 @@
     </EditText>
 
     <Spinner
-        android:id="@+id/addItemCategoryField"
+        android:id="@+id/searchItemCategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/category_arrays"
         android:prompt="@string/category_prompt" />
 
     <Spinner
-        android:id="@+id/addItemFeature"
+        android:id="@+id/searchItemStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/status_arrays"
@@ -29,13 +28,13 @@
 
 
     <DatePicker
-        android:id="@+id/addIncidentDatePicker"
+        android:id="@+id/searchItemDatePicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" 
         android:calendarViewShown="false"/>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/searchItemButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/search" />

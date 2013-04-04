@@ -1,7 +1,9 @@
 package edu.gatech.oad.fullhouse.findmystuff.pres;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import android.os.AsyncTask;
 import edu.gatech.oad.fullhouse.findmystuff.dao.ItemAccessor;
 import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerAccessorFactory;
 import edu.gatech.oad.fullhouse.findmystuff.model.Item;
@@ -17,9 +19,23 @@ public class SearchResultsPresenter {
         accessor = ServerAccessorFactory.getItemAccessor();
     }
 	
-	public void searchItems(String name, String category, String status, String date) {
-		// TODO Implement
-		List<Item> itemList = null;
-		activity.displayItems(itemList);
+	public void searchItems(final String name, final String category, final String status, final String date) {
+	    new AsyncTask<Void, Void, List<Item>>() {
+
+            @Override
+            protected List<Item> doInBackground(Void... params) {
+                try {
+                    return accessor.searchForItems(name, category, status, date);
+                } catch (Exception e) {
+                    //FIXME: this swallows more important errors...we should separate the "no results found" error
+                    // from the rest
+                    return new ArrayList<Item>();
+                }
+            }
+            
+            protected void onPostExecute(List<Item> itemList) {
+                activity.displayItems(itemList);
+            }
+	    }.execute();
 	}
 }
