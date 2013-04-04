@@ -22,7 +22,7 @@ class IncidentsController < ApplicationController
   end
 
   def search
-    incidents = Incident.where({ :user_id : params[:user_id] })
+    incidents = Incident.where({ :user_id => params[:user_id] })
     if !incidents.empty?
       @incident = incidents[0];
       respond_to do |format|

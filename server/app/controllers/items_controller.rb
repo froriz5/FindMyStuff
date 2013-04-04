@@ -23,9 +23,8 @@ class ItemsController < ApplicationController
 
   def search
 
-    items = Item.where(request.query_parameters)
-    if !items.empty?
-      @item = items[0];
+    @items = Item.where(request.query_parameters)
+    if !@items.empty?
       respond_to do |format|
         format.html # show.html.erb
         format.json { render json: @items }
