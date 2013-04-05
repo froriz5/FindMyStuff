@@ -23,7 +23,43 @@ class ItemsController < ApplicationController
 
   def search
 
-    @items = Item.where(request.query_parameters)
+    # This should be a loop over a hash of potential parameters
+    where = ''
+    hash = {}
+    addAnd = false
+    if params[:name]
+      if addAnd
+        where << ' and '
+      end
+      where << 'name = :name'
+      addAnd = true
+    end
+
+    if params[:category]
+      if addAnd
+        where << ' and '
+      end
+      where << 'category = :category'
+      addAnd = true
+    end
+
+    if params[:status]
+      if addAnd
+        where << ' and '
+      end
+      where << 'status = :status'
+      addAnd = true
+    end
+
+    if params[:incidentDate]
+      if addAnd
+        where << ' and '
+      end
+      where << 'incidentDate >= :incidentDate'
+      addAnd = true
+    end
+    
+    @items = Item.joins("join incidents on incidents.id = incident_id").where(where, request.query_parameters)
     if !@items.empty?
       respond_to do |format|
         format.html # show.html.erb

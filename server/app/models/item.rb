@@ -1,4 +1,7 @@
 class Item < ActiveRecord::Base
 
     has_and_belongs_to_many :item_features
-end
+
+    belongs_to :incident
+    delegate :incidentDate, :to => :incident
+  end
