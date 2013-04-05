@@ -7,6 +7,7 @@ import edu.gatech.oad.fullhouse.findmystuff.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 import android.view.Window;
 import android.widget.DatePicker;
 import android.widget.TextView;
@@ -39,7 +40,7 @@ public class AddIncidentActivity extends Activity{
 		return true;
 	}
 	
-	private void doAddIncident(){
+	public void doAddIncident(View v){
 		
 		User user = Session.instance().getLoggedInUser();
 		String title = ((TextView)findViewById(R.id.addIncidentTitleField)).getText().toString();
