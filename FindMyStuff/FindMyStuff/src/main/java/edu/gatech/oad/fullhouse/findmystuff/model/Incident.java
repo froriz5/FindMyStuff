@@ -12,13 +12,13 @@ public class Incident {
 
     private long id;
     
-    private Date incident_date;
+    private String incident_date;
     
     private String location;
     
     private String title;
 
-    private long user;
+    private long user_id;
 
     public long getId() {
         return id;
@@ -28,15 +28,15 @@ public class Incident {
         this.id = id;
     }
 
-    public Date getIncident_date() {
+    public String getIncident_date() {
         return incident_date;
     }
     
-    public void setIncident_date(Date incident_date) {
+    public void setIncident_date(String incident_date) {
         this.incident_date = incident_date;
     }
     
-    public String getlocation() {
+    public String getLocation() {
     	return location;
     }
     
@@ -51,12 +51,12 @@ public class Incident {
     public void setTitle(String title) {
     	this.title = title;
     }
-    
-    public long getUser() {
-        return user;
-    }
 
-    public void setUser(long id) {
-        this.user = id;
+    public long getUser_id() {
+        return user_id;
+    }
+    
+    public void setUser_id(long user_id) {
+        this.user_id = user_id;
     }
 }

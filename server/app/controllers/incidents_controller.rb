@@ -23,7 +23,7 @@ class IncidentsController < ApplicationController
 
   def search
     @incidents = Incident.where({ :user_id => params[:user_id] })
-    if !incidents.empty?
+    if !@incidents.empty?
       respond_to do |format|
         format.html # show.html.erb
         format.json { render json: @incidents }

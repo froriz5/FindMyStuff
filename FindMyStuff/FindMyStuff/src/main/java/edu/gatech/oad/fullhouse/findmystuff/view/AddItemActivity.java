@@ -67,6 +67,9 @@ public class AddItemActivity extends Activity {
         String[] incidents_array = new String[numIncidents];
         for(int i = 0; i < numIncidents; i++) {
         	incidents_array[i] = incidents.get(i).getTitle();
+        	if (incidents_array[i] == null) {
+        	    incidents_array[i] = "Unknown Title";
+        	}
         }
         
         ((Spinner)findViewById(R.id.addItemIncident)).setAdapter(new ArrayAdapter<String>(AddItemActivity.this, android.R.layout.simple_dropdown_item_1line, incidents_array));
@@ -74,7 +77,7 @@ public class AddItemActivity extends Activity {
 	
 	private void doAddItem() {
 		String name = ((TextView)findViewById(R.id.addItemNameField)).getText().toString();
-		String category = ((TextView)findViewById(R.id.addItemCategoryField)).getText().toString();
+		String category = ((Spinner)findViewById(R.id.addItemCategoryField)).getSelectedItem().toString();
 		//String feature = ((TextView)findViewById(R.id.addItemFeature)).getText().toString();
 		String incidentString = ((Spinner)findViewById(R.id.addItemIncident)).getSelectedItem().toString();
 		String status = ((Spinner)findViewById(R.id.addItemStatus)).getSelectedItem().toString();
@@ -87,11 +90,11 @@ public class AddItemActivity extends Activity {
 		// Get the selected incident
 		Incident incident = new Incident();
 		for(Incident i : incidents) {
-			if(i.getTitle().equals(incidentString)) {
+			if(i.getTitle() != null && i.getTitle().equals(incidentString)) {
 				incident = i;
 			}
 		}
-		item.setIncident(incident);
+		item.setIncident_id(incident.getId());
 		item.setStatus(status);
 		pres.addItem(item);
 		itemAdded = true;

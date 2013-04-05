@@ -1,9 +1,10 @@
 package edu.gatech.oad.fullhouse.findmystuff.view;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import edu.gatech.oad.fullhouse.findmystuff.R;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,9 +12,9 @@ import android.view.View;
 import android.view.Window;
 import android.widget.DatePicker;
 import android.widget.TextView;
+import edu.gatech.oad.fullhouse.findmystuff.R;
 import edu.gatech.oad.fullhouse.findmystuff.model.Incident;
 import edu.gatech.oad.fullhouse.findmystuff.model.Session;
-import edu.gatech.oad.fullhouse.findmystuff.model.User;
 import edu.gatech.oad.fullhouse.findmystuff.pres.AddIncidentPresenter;
 
 public class AddIncidentActivity extends Activity{
@@ -40,7 +41,9 @@ public class AddIncidentActivity extends Activity{
 		return true;
 	}
 	
-	public void doAddIncident(View v){
+	//this suppresslint is ok, because we're using the SDF for a very specific format for the server
+	@SuppressLint("SimpleDateFormat")
+    public void doAddIncident(View v){
 		
 		long userID = Session.instance().getLoggedInUser().getId();
 		String title = ((TextView)findViewById(R.id.addIncidentTitleField)).getText().toString();
@@ -52,8 +55,9 @@ public class AddIncidentActivity extends Activity{
 		Incident incident = new Incident();
 		incident.setTitle(title);
 		incident.setLocation(location);
-		incident.setIncident_date(date);
-		incident.setUser(userID);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		incident.setIncident_date(sdf.format(date));
+		incident.setUser_id(userID);
 		
 		pres.addIncident(incident);
 		incidentAdded = true;

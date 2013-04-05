@@ -49,7 +49,7 @@ public class ServerItemAccessorImpl extends RESTClient<Item> implements ItemAcce
         params.put("name", name);
         params.put("category", category);
         params.put("status", status);
-//        params.put("date", date);
+        params.put("date", date);
         String json = "";
         if (!params.isEmpty()) {
             json = super.doGet("search", params);
