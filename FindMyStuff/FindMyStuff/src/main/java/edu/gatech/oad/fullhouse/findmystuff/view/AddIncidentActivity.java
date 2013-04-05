@@ -50,8 +50,8 @@ public class AddIncidentActivity extends Activity{
 		Date date = getDateFromDatePicker((DatePicker)findViewById(R.id.addIncidentDatePicker));
 		
 		Incident incident = new Incident();
-		incident.setIncidentTitle(title);
-		incident.setIncidentLocation(location);
+		incident.setTitle(title);
+		incident.setLocation(location);
 		incident.setIncidentDate(date);
 		incident.setUser(userID);
 		
