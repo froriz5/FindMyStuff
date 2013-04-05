@@ -42,7 +42,7 @@ public class AddIncidentActivity extends Activity{
 	
 	public void doAddIncident(View v){
 		
-		User user = Session.instance().getLoggedInUser();
+		long userID = Session.instance().getLoggedInUser().getId();
 		String title = ((TextView)findViewById(R.id.addIncidentTitleField)).getText().toString();
 		String city = ((TextView)findViewById(R.id.addIncidentCityField)).getText().toString();
 		String state = ((TextView)findViewById(R.id.addIncidentStateField)).getText().toString();
@@ -53,7 +53,7 @@ public class AddIncidentActivity extends Activity{
 		incident.setIncidentTitle(title);
 		incident.setIncidentLocation(location);
 		incident.setIncidentDate(date);
-		incident.setUser(user);
+		incident.setUserID(userID);
 		
 		pres.addIncident(incident);
 		incidentAdded = true;

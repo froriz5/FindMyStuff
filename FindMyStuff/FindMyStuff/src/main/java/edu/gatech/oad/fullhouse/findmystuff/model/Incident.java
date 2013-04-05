@@ -18,7 +18,7 @@ public class Incident {
     
     private String title;
 
-    private User user;
+    private long userID;
 
     public long getId() {
         return id;
@@ -52,11 +52,11 @@ public class Incident {
     	this.title = title;
     }
     
-    public User getUser() {
-        return user;
+    public long getUserID() {
+        return userID;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserID(long id) {
+        this.userID = id;
     }
 }
