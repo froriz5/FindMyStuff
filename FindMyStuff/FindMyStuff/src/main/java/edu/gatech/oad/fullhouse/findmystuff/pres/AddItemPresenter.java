@@ -1,5 +1,6 @@
 package edu.gatech.oad.fullhouse.findmystuff.pres;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.os.AsyncTask;
@@ -56,8 +57,12 @@ public class AddItemPresenter {
 
             @Override
             protected List<Incident> doInBackground(Void ... params) {
-            	List<Incident> userIncidents = incidentAccessor.getIncidentsByUser(user);
-                return userIncidents;
+                try {
+                	List<Incident> userIncidents = incidentAccessor.getIncidentsByUser(user);
+                    return userIncidents;
+                } catch (Exception e) {
+                    return new ArrayList<Incident>();
+                }
             }
 	        
             @Override
