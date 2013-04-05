@@ -1,7 +1,9 @@
 package edu.gatech.oad.fullhouse.findmystuff.pres;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import android.os.AsyncTask;
@@ -26,7 +28,13 @@ public class SearchResultsPresenter {
             @Override
             protected List<Item> doInBackground(Void... params) {
                 try {
-                    return accessor.searchForItems(name, category, status, date);
+                	Calendar calendar = new GregorianCalendar();
+                	calendar.setTime(date);
+                	int day = calendar.get(Calendar.DAY_OF_MONTH);
+                	int month = calendar.get(Calendar.MONTH);
+                	int year = calendar.get(Calendar.YEAR);
+                	String sDate = String.format("%4d-%2d-%2d", year, month, day);
+                    return accessor.searchForItems(name, category, status, sDate);
                 } catch (Exception e) {
                     //FIXME: this swallows more important errors...we should separate the "no results found" error
                     // from the rest
