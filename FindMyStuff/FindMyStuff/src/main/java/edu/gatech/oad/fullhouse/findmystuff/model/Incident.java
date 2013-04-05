@@ -12,7 +12,7 @@ public class Incident {
 
     private long id;
     
-    private Date incidentDate;
+    private Date incident_date;
     
     private String location;
     
@@ -27,13 +27,13 @@ public class Incident {
     public void setId(long id) {
         this.id = id;
     }
-    
-    public Date getIncidentDate() {
-        return incidentDate;
-    }
 
-    public void setIncidentDate(Date date) {
-        this.incidentDate = date;
+    public Date getIncident_date() {
+        return incident_date;
+    }
+    
+    public void setIncident_date(Date incident_date) {
+        this.incident_date = incident_date;
     }
     
     public String getlocation() {

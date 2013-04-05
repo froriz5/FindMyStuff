@@ -51,11 +51,11 @@ class ItemsController < ApplicationController
       addAnd = true
     end
 
-    if params[:incidentDate]
+    if params[:incident_date]
       if addAnd
         where << ' and '
       end
-      where << 'incidentdate >= :incidentDate'
+      where << 'incident_date >= :incident_date'
       addAnd = true
     end
     

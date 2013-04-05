@@ -11,7 +11,7 @@
 
 <% @incidents.each do |incident| %>
   <tr>
-    <td><%= incident.incidentDate %></td>
+    <td><%= incident.incident_date %></td>
     <td><%= incident.user_id %></td>
     <td><%= link_to 'Show', incident %></td>
     <td><%= link_to 'Edit', edit_incident_path(incident) %></td>
