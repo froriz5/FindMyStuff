@@ -33,7 +33,7 @@ public class SearchResultsPresenter {
                 	int day = calendar.get(Calendar.DAY_OF_MONTH);
                 	int month = calendar.get(Calendar.MONTH);
                 	int year = calendar.get(Calendar.YEAR);
-                	String sDate = String.format("%4d-%2d-%2d", year, month, day);
+                	String sDate = String.format("%4d-%02d-%02d", year, month, day);
                     return accessor.searchForItems(name, category, status, sDate);
                 } catch (Exception e) {
                     //FIXME: this swallows more important errors...we should separate the "no results found" error

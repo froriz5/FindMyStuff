@@ -1,5 +1,6 @@
 package edu.gatech.oad.fullhouse.findmystuff.dao.impl;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +10,7 @@ import com.google.gson.Gson;
 import edu.gatech.oad.fullhouse.findmystuff.client.RESTClient;
 import edu.gatech.oad.fullhouse.findmystuff.dao.IncidentAccessor;
 import edu.gatech.oad.fullhouse.findmystuff.model.Incident;
+import edu.gatech.oad.fullhouse.findmystuff.model.Item;
 import edu.gatech.oad.fullhouse.findmystuff.model.User;
 
 public class ServerIncidentAccessorImpl extends RESTClient<Incident> implements IncidentAccessor {
@@ -25,7 +27,9 @@ public class ServerIncidentAccessorImpl extends RESTClient<Incident> implements 
         Map<String, String> params = new HashMap<String, String>();
         params.put("user_id", user.getId() + "");
         String json = super.doGet("search", params);
-        return (List<Incident>) new Gson().fromJson(json, Incident.class);
+        json = super.doGet("search", params);
+        return Arrays.asList(new Gson().fromJson(json, Incident[].class));
+//        return (List<Incident>) new Gson().fromJson(json, Incident.class);
     }
 
     public void updateIncident(Incident incident) {

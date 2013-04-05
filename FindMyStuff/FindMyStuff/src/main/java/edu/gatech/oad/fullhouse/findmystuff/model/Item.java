@@ -15,7 +15,7 @@ public class Item {
 
     private String category;
 
-    private Incident incident;
+    private long incident_id;
 
     private String status;
 
@@ -37,14 +37,14 @@ public class Item {
         this.category = category;
     }
 
-    public Incident getIncident() {
-        return incident;
+    public long getIncident_id() {
+        return incident_id;
     }
-
-    public void setIncident(Incident incident) {
-        this.incident = incident;
+    
+    public void setIncident_id(long incident_id) {
+        this.incident_id = incident_id;
     }
-
+    
     public String getStatus() {
         return status;
     }
