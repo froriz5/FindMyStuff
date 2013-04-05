@@ -22,12 +22,11 @@ class IncidentsController < ApplicationController
   end
 
   def search
-    incidents = Incident.where({ :user_id => params[:user_id] })
+    @incidents = Incident.where({ :user_id => params[:user_id] })
     if !incidents.empty?
-      @incident = incidents[0];
       respond_to do |format|
         format.html # show.html.erb
-        format.json { render json: @incident }
+        format.json { render json: @incidents }
       end
     else
      # TODO handle errors gracefully...currently, we just raise a 500  
