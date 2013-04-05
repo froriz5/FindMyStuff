@@ -52,7 +52,7 @@ public class AddIncidentActivity extends Activity{
 		Incident incident = new Incident();
 		incident.setTitle(title);
 		incident.setLocation(location);
-		incident.setIncidentDate(date);
+		incident.setIncident_date(date);
 		incident.setUser(userID);
 		
 		pres.addIncident(incident);
