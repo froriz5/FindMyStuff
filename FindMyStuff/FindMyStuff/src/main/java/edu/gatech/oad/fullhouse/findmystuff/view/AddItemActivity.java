@@ -66,7 +66,7 @@ public class AddItemActivity extends Activity {
         int numIncidents = incidents.size();
         String[] incidents_array = new String[numIncidents];
         for(int i = 0; i < numIncidents; i++) {
-        	incidents_array[i] = incidents.get(i).getIncidentTitle();
+        	incidents_array[i] = incidents.get(i).getTitle();
         }
         
         ((Spinner)findViewById(R.id.addItemIncident)).setAdapter(new ArrayAdapter<String>(AddItemActivity.this, android.R.layout.simple_dropdown_item_1line, incidents_array));
@@ -87,7 +87,7 @@ public class AddItemActivity extends Activity {
 		// Get the selected incident
 		Incident incident = new Incident();
 		for(Incident i : incidents) {
-			if(i.getIncidentTitle().equals(incidentString)) {
+			if(i.getTitle().equals(incidentString)) {
 				incident = i;
 			}
 		}

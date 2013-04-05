@@ -14,7 +14,7 @@ public class Incident {
     
     private Date incidentDate;
     
-    private String incidentLocation;
+    private String location;
     
     private String title;
 
@@ -32,31 +32,31 @@ public class Incident {
         return incidentDate;
     }
 
-    public void setIncidentDate(Date incidentDate) {
-        this.incidentDate = incidentDate;
+    public void setIncidentDate(Date date) {
+        this.incidentDate = date;
     }
     
-    public String getIncidentLocation() {
-    	return incidentLocation;
+    public String getlocation() {
+    	return location;
     }
     
-    public void setIncidentLocation(String loc) {
-    	this.incidentLocation = loc;
+    public void setLocation(String loc) {
+    	this.location = loc;
     }
 
-    public String getIncidentTitle() {
+    public String getTitle() {
     	return title;
     }
     
-    public void setIncidentTitle(String title) {
+    public void setTitle(String title) {
     	this.title = title;
     }
     
-    public long getUserID() {
+    public long getUser() {
         return user;
     }
 
-    public void setUserID(long id) {
+    public void setUser(long id) {
         this.user = id;
     }
 }
