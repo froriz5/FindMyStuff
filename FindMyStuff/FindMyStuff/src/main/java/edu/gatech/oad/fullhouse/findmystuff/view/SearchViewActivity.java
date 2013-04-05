@@ -1,5 +1,7 @@
 package edu.gatech.oad.fullhouse.findmystuff.view;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import android.app.Activity;
@@ -10,6 +12,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import edu.gatech.oad.fullhouse.findmystuff.R;
@@ -63,10 +66,21 @@ public class SearchViewActivity extends Activity{
 
 	public void doSearch(View v) {
 		// TODO Implement
+		Date date = getDateFromDatePicker((DatePicker)findViewById(R.id.searchItemDatePicker));
 		String name     = ((TextView)findViewById(R.id.searchItemName)).getText().toString();
 		String category = ((Spinner)findViewById(R.id.searchItemCategory)).getSelectedItem().toString();
 		String status   = ((Spinner)findViewById(R.id.searchItemStatus)).getSelectedItem().toString();
-		String date     = null;
 		presenter.searchItems(name, category, status, date);
+	}
+	
+	public static java.util.Date getDateFromDatePicker(DatePicker datePicker){
+	    int day = datePicker.getDayOfMonth();
+	    int month = datePicker.getMonth();
+	    int year =  datePicker.getYear();
+
+	    Calendar calendar = Calendar.getInstance();
+	    calendar.set(year, month, day);
+
+	    return calendar.getTime();
 	}
 }
