@@ -18,7 +18,7 @@ public class Incident {
     
     private String title;
 
-    private long userID;
+    private long user;
 
     public long getId() {
         return id;
@@ -53,10 +53,10 @@ public class Incident {
     }
     
     public long getUserID() {
-        return userID;
+        return user;
     }
 
     public void setUserID(long id) {
-        this.userID = id;
+        this.user = id;
     }
 }
