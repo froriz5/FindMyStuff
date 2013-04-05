@@ -52,11 +52,11 @@ public class Incident {
     	this.title = title;
     }
     
-    public long getUserID() {
+    public long getUser() {
         return user;
     }
 
-    public void setUserID(long id) {
+    public void setUser(long id) {
         this.user = id;
     }
 }
