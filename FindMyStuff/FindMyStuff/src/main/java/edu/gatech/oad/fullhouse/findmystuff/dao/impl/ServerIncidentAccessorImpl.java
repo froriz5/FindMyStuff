@@ -23,7 +23,7 @@ public class ServerIncidentAccessorImpl extends RESTClient<Incident> implements 
 
     public List<Incident> getIncidentsByUser(User user) {
         Map<String, String> params = new HashMap<String, String>();
-        params.put("user_id", user.getId() + "");
+        params.put("user", user.getId() + "");
         String json = super.doGet("search", params);
         return (List<Incident>) new Gson().fromJson(json, Incident.class);
     }
