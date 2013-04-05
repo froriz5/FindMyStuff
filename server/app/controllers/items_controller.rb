@@ -55,7 +55,7 @@ class ItemsController < ApplicationController
       if addAnd
         where << ' and '
       end
-      where << 'incidentDate >= :incidentDate'
+      where << 'incidentdate >= :incidentDate'
       addAnd = true
     end
     
