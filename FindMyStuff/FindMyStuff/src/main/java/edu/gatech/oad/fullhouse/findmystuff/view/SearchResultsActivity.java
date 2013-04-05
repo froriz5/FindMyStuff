@@ -1,6 +1,7 @@
 package edu.gatech.oad.fullhouse.findmystuff.view;
 
 
+import java.util.Date;
 import java.util.List;
 
 import android.app.Activity;
@@ -31,7 +32,7 @@ public class SearchResultsActivity extends Activity{
         String name = bundle.getString("name");
         String category = bundle.getString("category");
         String status = bundle.getString("status");
-        String date = bundle.getString("date");
+        Date date = new Date(bundle.getLong("date"));
         presenter.searchItems(name, category, status, date);
     }
 	

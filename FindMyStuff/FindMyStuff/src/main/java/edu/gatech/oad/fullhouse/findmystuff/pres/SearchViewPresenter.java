@@ -1,5 +1,6 @@
 package edu.gatech.oad.fullhouse.findmystuff.pres;
 
+import java.util.Date;
 import java.util.List;
 
 import android.os.AsyncTask;
@@ -24,7 +25,7 @@ public class SearchViewPresenter {
         this.catAccessor = ServerAccessorFactory.getCategoryAccessor();
 	}
 	
-	public void searchItems(String name, String category, String status, String date) {
+	public void searchItems(String name, String category, String status, Date date) {
 		Bundle bundle = new Bundle();
 		if (name != null && name.length() == 0) {
 		    name = null;
@@ -32,7 +33,7 @@ public class SearchViewPresenter {
 		bundle.putString("name", name);
 		bundle.putString("category", category);
 		bundle.putString("status", status);
-		bundle.putString("date", date);
+		bundle.putLong("date", date.getTime());
 		new Transitioner(activity).transitionTo(SearchResultsActivity.class, bundle);
 	}
 

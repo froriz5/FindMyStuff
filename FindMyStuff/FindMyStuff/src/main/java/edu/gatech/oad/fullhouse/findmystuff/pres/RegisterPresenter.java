@@ -59,20 +59,6 @@ public class RegisterPresenter {
 				}
 			}.execute();
 		}
-		
-//		if (accessor.getUserByUsername(usern) != null) {
-//			activity.displayUsernameTakenError();
-//			valid = false;
-//		}
-//		if (accessor.getUserByEmail(email) != null) {
-//			activity.displayEmailTakenError();
-//			valid = false;
-//		}
-//		
-//		if (valid) {
-//			accessor.addUser(User.newUser(usern, passw, name, loc, false, email, phone));
-//			activity.finish();
-//		}
 	}
 	
 	/*
@@ -80,10 +66,16 @@ public class RegisterPresenter {
 	 * Return false and call an error display in activity for invalid information.
 	 */
 	public boolean checkUsername(String username) {
+		if (username.length() == 0) {
+			return false;
+		}
 		return true;
 	}
 	
 	public boolean checkPassword(String password) {
+		if (password.length() == 0) {
+			return false;
+		}
 		return true;
 	}
 	

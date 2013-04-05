@@ -1,6 +1,7 @@
 package edu.gatech.oad.fullhouse.findmystuff.pres;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import android.os.AsyncTask;
@@ -19,7 +20,7 @@ public class SearchResultsPresenter {
         accessor = ServerAccessorFactory.getItemAccessor();
     }
 	
-	public void searchItems(final String name, final String category, final String status, final String date) {
+	public void searchItems(final String name, final String category, final String status, final Date date) {
 	    new AsyncTask<Void, Void, List<Item>>() {
 
             @Override
