@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
+import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerAccessorFactory;
 import edu.gatech.oad.fullhouse.findmystuff.pres.LookupUserPresenter;
 
 public class LookupUserActivity extends Activity {
@@ -21,7 +22,7 @@ public class LookupUserActivity extends Activity {
         setProgressBarIndeterminateVisibility(false);        
 
 		setContentView(R.layout.activity_lookup_user);
-        presenter = new LookupUserPresenter(this);
+        presenter = new LookupUserPresenter(this, ServerAccessorFactory.getUserAccessor());
 	}
 
 	@Override
