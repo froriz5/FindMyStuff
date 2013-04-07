@@ -66,6 +66,12 @@
     <string name="new_incident">New Incident</string>
     <string name="title_activity_search_results">SearchResults</string>
     <string name="incident_title">Incident Title:</string>
+    <string name="password_mismatch_error">Passwords don\'t match!</string>
+    <string name="email_taken_error">There is already an account associated with that email address.</string>
+    <string name="username_taken_error">That username is already in use.</string>
+    <string name="email_format_error">Please enter a valid email address.</string>
+    <string name="password_length_error">Password must be at least 3 characters long.</string>
+    <string name="username_format_error">Invalid username format.</string>
 
 
 </resources>
