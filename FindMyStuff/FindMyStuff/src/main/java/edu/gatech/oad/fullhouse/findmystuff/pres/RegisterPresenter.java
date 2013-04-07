@@ -11,17 +11,17 @@ public class RegisterPresenter {
 	private RegisterActivity activity;
 	private UserAccessor accessor;
 	
-	public RegisterPresenter(RegisterActivity activ) {
-		activity = activ;
-		accessor = ServerAccessorFactory.getUserAccessor();
+	public RegisterPresenter(RegisterActivity activ, UserAccessor accessor) {
+		this.activity = activ;
+		this.accessor = accessor;
 	}
 	
-	public void checkRegInfo(final String usern, final String passw, final String name, final String loc,
+	public void checkRegInfo(final String usern, final String passw, final String repassw, final String name, final String loc,
 			final String email, final String phone) {
 		boolean valid = true;
 		
 		valid = valid && checkUsername(usern);
-		valid = valid && checkPassword(passw);
+		valid = valid && checkPassword(passw, repassw);
 		valid = valid && checkName(name);
 		valid = valid && checkLocation(loc);
 		valid = valid && checkEmail(email);
@@ -59,6 +59,7 @@ public class RegisterPresenter {
 				}
 			}.execute();
 		}
+		
 	}
 	
 	/*
@@ -66,14 +67,20 @@ public class RegisterPresenter {
 	 * Return false and call an error display in activity for invalid information.
 	 */
 	public boolean checkUsername(String username) {
-		if (username.length() == 0) {
+		if (!username.matches("[_A-Za-z0-9-]+")) {
+			activity.displayUsernameFormatError();
 			return false;
 		}
 		return true;
 	}
 	
-	public boolean checkPassword(String password) {
-		if (password.length() == 0) {
+	public boolean checkPassword(String password, String repassword) {
+		if (!password.equals(repassword)) {
+			activity.displayPasswordMismatchError();
+			return false;
+		}
+		else if (password.length() < 3) {
+			activity.displayPasswordLengthError();
 			return false;
 		}
 		return true;
@@ -88,6 +95,10 @@ public class RegisterPresenter {
 	}
 	
 	public boolean checkEmail(String email) {
+		if (!email.matches("[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})")) {
+			activity.displayEmailFormatError();
+			return false;
+		}
 		return true;
 	}
 	
