@@ -18,9 +18,9 @@ public class LookupUserPresenter {
 	private User currentLookup;
 	private UserAccessor accessor;
 	
-	public LookupUserPresenter(LookupUserActivity activ) {
+	public LookupUserPresenter(LookupUserActivity activ, UserAccessor accessor) {
 		this.activity = activ;
-		this.accessor = ServerAccessorFactory.getUserAccessor();
+		this.accessor = accessor;
 	}
 	
 	/**
