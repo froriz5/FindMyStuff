@@ -124,4 +124,8 @@ public class User {
 	public void setAdmin(boolean admin) {
 		this.admin = admin;
 	}
+	
+	public int getLoginAttempts() {
+		return loginAttempts;
+	}
 }

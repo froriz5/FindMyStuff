@@ -20,9 +20,9 @@ public class LoginPresenter {
 	private LoginActivity activity;
 	private UserAccessor accessor;
 	
-	public LoginPresenter(LoginActivity activ) {
-		activity = activ;
-		accessor = ServerAccessorFactory.getUserAccessor();
+	public LoginPresenter(LoginActivity activ, UserAccessor accessor) {
+		this.activity = activ;
+		this.accessor = accessor;
 	}
 	
 	/**
@@ -64,7 +64,7 @@ public class LoginPresenter {
                 //test the states of the user object...
                 if (user == null) { //not found, or invalid password
                     activity.displayPasswordError();
-                }else if (user.isLocked()) { //locked
+                } else if (user.isLocked()) { //locked
                     activity.displayLockedError();
                 } else { //SUCCESS!
                     Session.newSession().setLoggedInUser(user);

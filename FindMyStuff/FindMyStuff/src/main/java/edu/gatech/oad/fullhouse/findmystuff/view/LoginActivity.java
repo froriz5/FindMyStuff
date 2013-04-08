@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
+import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerAccessorFactory;
 import edu.gatech.oad.fullhouse.findmystuff.model.Settings;
 import edu.gatech.oad.fullhouse.findmystuff.pres.LoginPresenter;
 
@@ -32,7 +33,7 @@ public class LoginActivity extends Activity {
         setProgressBarIndeterminateVisibility(false);        
 
         setContentView(R.layout.activity_login);
-        presenter = new LoginPresenter(this);
+        presenter = new LoginPresenter(this, ServerAccessorFactory.getUserAccessor());
         
 
         Settings.instance().setServerUrl("http://floating-wildwood-5355.herokuapp.com");
