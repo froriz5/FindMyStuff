@@ -13,6 +13,12 @@ import edu.gatech.oad.fullhouse.findmystuff.util.Transitioner;
 import edu.gatech.oad.fullhouse.findmystuff.view.SearchResultsActivity;
 import edu.gatech.oad.fullhouse.findmystuff.view.SearchViewActivity;
 
+/**
+ * A presenter for starting seraches
+ * 
+ * @author Rachel Clark
+ *
+ */
 public class SearchViewPresenter {
 
 	private SearchViewActivity activity;
@@ -25,6 +31,13 @@ public class SearchViewPresenter {
         this.catAccessor = ServerAccessorFactory.getCategoryAccessor();
 	}
 	
+	/**
+	 * Starts an activity to perform a serach with the given parameters
+	 * @param name the name of the item searching for or null to not be considered
+	 * @param category the category to filter by
+	 * @param status the status to filter by
+	 * @param date the date to filter by
+	 */
 	public void searchItems(String name, String category, String status, Date date) {
 		Bundle bundle = new Bundle();
 		if (name != null && name.length() == 0) {
@@ -37,6 +50,9 @@ public class SearchViewPresenter {
 		new Transitioner(activity).transitionTo(SearchResultsActivity.class, bundle);
 	}
 
+	/**
+	 * Gets the categories in the database and gives them to the activity
+	 */
     public void loadSearchForm() {
         this.activity.setProgressBarIndeterminateVisibility(true); 
         new AsyncTask<Void, Void, List<Category>>() {

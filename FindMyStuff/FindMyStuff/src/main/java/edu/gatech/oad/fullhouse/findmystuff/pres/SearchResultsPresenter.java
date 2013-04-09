@@ -12,6 +12,12 @@ import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerAccessorFactory;
 import edu.gatech.oad.fullhouse.findmystuff.model.Item;
 import edu.gatech.oad.fullhouse.findmystuff.view.SearchResultsActivity;
 
+/**
+ * A presenter to perform a search and display the results
+ * 
+ * @author Rachel Clark
+ *
+ */
 public class SearchResultsPresenter {
 	
 	private SearchResultsActivity activity;
@@ -22,6 +28,13 @@ public class SearchResultsPresenter {
         accessor = ServerAccessorFactory.getItemAccessor();
     }
 	
+	/**
+	 * Searches the database with the given parameters
+	 * @param name the name of the item searching for or null to not be considered
+	 * @param category the category to filter by
+	 * @param status the status to filter by
+	 * @param date the date to filter by
+	 */
 	public void searchItems(final String name, final String category, final String status, final Date date) {
 	    new AsyncTask<Void, Void, List<Item>>() {
 

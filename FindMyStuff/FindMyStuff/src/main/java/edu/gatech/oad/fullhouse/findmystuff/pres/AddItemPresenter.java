@@ -13,6 +13,12 @@ import edu.gatech.oad.fullhouse.findmystuff.model.Session;
 import edu.gatech.oad.fullhouse.findmystuff.model.User;
 import edu.gatech.oad.fullhouse.findmystuff.view.AddItemActivity;
 
+/**
+ * A presenter for the add item screen that handles adding an item to the system
+ * 
+ * @author Felipe Roriz
+ *
+ */
 public class AddItemPresenter {
 
     public static final String ITEM_ADDED = AddItemPresenter.class.getName()
@@ -31,6 +37,10 @@ public class AddItemPresenter {
         user = Session.instance().getLoggedInUser();
     }
 
+    /**
+     * Puts a given item into the database. Tells the activity to finish if successful.
+     * @param item the Item to be added
+     */
     public void addItem(Item item) {
         this.activity.setProgressBarIndeterminateVisibility(true); 
 	    new AsyncTask<Item, Void, Void>() {
@@ -51,6 +61,10 @@ public class AddItemPresenter {
 	    }.execute(item);
 	}
 
+    /**
+     * Gets the incidents created by the currently logged in user and populates
+     * a spinner in the activity with them for the user to select.
+     */
 	public void getUsersIncidents() {
 		this.activity.setProgressBarIndeterminateVisibility(true); 
 	    new AsyncTask<Void, Void, List<Incident>>() {
