@@ -6,12 +6,14 @@ import java.util.List;
 import android.os.AsyncTask;
 import edu.gatech.oad.fullhouse.findmystuff.dao.IncidentAccessor;
 import edu.gatech.oad.fullhouse.findmystuff.dao.ItemAccessor;
+import edu.gatech.oad.fullhouse.findmystuff.dao.UserAccessor;
 import edu.gatech.oad.fullhouse.findmystuff.dao.impl.ServerAccessorFactory;
 import edu.gatech.oad.fullhouse.findmystuff.model.Incident;
 import edu.gatech.oad.fullhouse.findmystuff.model.Item;
 import edu.gatech.oad.fullhouse.findmystuff.model.Session;
 import edu.gatech.oad.fullhouse.findmystuff.model.User;
 import edu.gatech.oad.fullhouse.findmystuff.view.AddItemActivity;
+import edu.gatech.oad.fullhouse.findmystuff.view.LookupUserActivity;
 
 public class AddItemPresenter {
 
@@ -30,6 +32,11 @@ public class AddItemPresenter {
         incidentAccessor = ServerAccessorFactory.getIncidentAccessor();
         user = Session.instance().getLoggedInUser();
     }
+    
+    public AddItemPresenter(AddItemActivity activ, ItemAccessor accessor) {
+		this.activity = activ;
+		this.accessor = accessor;
+	}
 
     public void addItem(Item item) {
         this.activity.setProgressBarIndeterminateVisibility(true); 
