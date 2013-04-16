@@ -2,10 +2,7 @@ package edu.gatech.oad.fullhouse.findmystuff.test;
 
 import java.util.List;
 
-import android.os.Handler;
-import android.os.Looper;
 import android.test.ActivityInstrumentationTestCase2;
-import android.test.UiThreadTest;
 import android.view.View;
 import android.widget.TextView;
 import edu.gatech.oad.fullhouse.findmystuff.R;

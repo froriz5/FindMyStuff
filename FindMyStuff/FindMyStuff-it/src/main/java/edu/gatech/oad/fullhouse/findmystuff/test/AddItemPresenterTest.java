@@ -11,11 +11,8 @@ import edu.gatech.oad.fullhouse.findmystuff.R;
 import edu.gatech.oad.fullhouse.findmystuff.dao.ItemAccessor;
 import edu.gatech.oad.fullhouse.findmystuff.model.Incident;
 import edu.gatech.oad.fullhouse.findmystuff.model.Item;
-import edu.gatech.oad.fullhouse.findmystuff.model.User;
 import edu.gatech.oad.fullhouse.findmystuff.pres.AddItemPresenter;
-import edu.gatech.oad.fullhouse.findmystuff.pres.LookupUserPresenter;
 import edu.gatech.oad.fullhouse.findmystuff.view.AddItemActivity;
-import edu.gatech.oad.fullhouse.findmystuff.view.LookupUserActivity;
 
 public class AddItemPresenterTest extends
 ActivityInstrumentationTestCase2<AddItemActivity> {
@@ -25,7 +22,7 @@ ActivityInstrumentationTestCase2<AddItemActivity> {
 				.getVisibility());
 	}
 	
-	public AddItemPresenterTest(Class<AddItemActivity> activityClass) {
+	public AddItemPresenterTest() {
 		super(AddItemActivity.class);
 	}
 
@@ -74,58 +71,62 @@ ActivityInstrumentationTestCase2<AddItemActivity> {
 			fail("searchForItems should not be called");
 			return null;
 		}
-		
-		private Item getTestItem() {
-			Item testItem = new Item();
-			testItem.setName("testName");
-			testItem.setStatus("testStatus");
-			testItem.setCategory("testCategory");
-			testItem.setIncident_id(9000);
-			return testItem;
-		}
-		
-		private Item getTestItem2(long id) {
-			Item testItem = new Item();
-			testItem.setName("testName");
-			testItem.setStatus("testStatus");
-			testItem.setCategory("testCategory");
-			testItem.setIncident_id(id);
-			return testItem;
-		}
-		
-		public void testAddItemFailed() throws Throwable {
-			AddItemActivity activity = getActivity();
-			assertNotNull(activity);
-			final Item testItem = getTestItem2(800);
-			final AddItemPresenter presenter = new AddItemPresenter(activity,
-					new TestItemAccessor(testItem));
-			runTestOnUiThread(new Runnable() {
-
-				public void run() {
-					presenter.addItem(getTestItem2(800));
-				}
-
-			});
-			Thread.sleep(1000);
-			assertErrorVisibility(View.VISIBLE);
-		}
-		
-		public void testAddItemPassed() throws Throwable {
-			AddItemActivity activity = getActivity();
-			assertNotNull(activity);
-			final Item testItem = getTestItem();
-			final AddItemPresenter presenter = new AddItemPresenter(activity,
-					new TestItemAccessor(testItem));
-			runTestOnUiThread(new Runnable() {
-
-				public void run() {
-					presenter.addItem(testItem);
-				}
-
-			});
-			Thread.sleep(1000);
-			assertErrorVisibility(View.VISIBLE);
-		}
 	}
+	
+	private Item getTestItem() {
+		Item testItem = new Item();
+		testItem.setName("testName");
+		testItem.setStatus("testStatus");
+		testItem.setCategory("testCategory");
+		testItem.setIncident_id(9000);
+		return testItem;
+	}
+	
+	private Item getTestItem2(long id) {
+		Item testItem = new Item();
+		testItem.setName("testName");
+		testItem.setStatus("testStatus");
+		testItem.setCategory("testCategory");
+		testItem.setIncident_id(id);
+		return testItem;
+	}
+	
+	
+	public void testAddItemPassed() throws Throwable {
+		AddItemActivity activity = getActivity();
+		assertNotNull(activity);
+		final Item testItem = getTestItem();
+		final AddItemPresenter presenter = new AddItemPresenter(activity,
+				new TestItemAccessor(testItem));
+		runTestOnUiThread(new Runnable() {
+
+			public void run() {
+				presenter.addItem(testItem);
+			}
+
+		});
+		Thread.sleep(1000);
+		assertErrorVisibility(View.VISIBLE);
+		assertAddItem(testItem);
+	}
+	
+	public void testAddItemFailed() throws Throwable {
+		AddItemActivity activity = getActivity();
+		assertNotNull(activity);
+		final Item testItem = getTestItem2(800);
+		final AddItemPresenter presenter = new AddItemPresenter(activity,
+				new TestItemAccessor(testItem));
+		runTestOnUiThread(new Runnable() {
+
+			public void run() {
+				presenter.addItem(testItem);
+			}
+
+		});
+		Thread.sleep(1000);
+		assertErrorVisibility(View.VISIBLE);
+		assertAddItem(testItem);
+	}
+	
 
 }
