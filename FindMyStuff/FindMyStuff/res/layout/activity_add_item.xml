@@ -68,10 +68,4 @@
         android:layout_height="wrap_content"
         android:text="@string/add_item" />
 
-    <Button
-        android:id="@+id/addItemCancelButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/cancel" />
-
 </LinearLayout>
