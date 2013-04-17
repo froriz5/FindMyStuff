@@ -40,7 +40,7 @@ public class AddItemActivity extends Activity {
                 doAddItem();
             }
 		});
-		
+		/*
         btn = (Button)findViewById(R.id.addItemCancelButton);
         btn.setOnClickListener(new OnClickListener() {
 
@@ -48,7 +48,7 @@ public class AddItemActivity extends Activity {
                 finish();
             }
         });
-        
+        */
         this.pres = new AddItemPresenter(this);
         pres.getUsersIncidents();
 	}
