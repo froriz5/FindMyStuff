@@ -16,7 +16,7 @@ import edu.gatech.oad.fullhouse.findmystuff.view.AddItemActivity;
 
 public class AddItemPresenterTest extends
 ActivityInstrumentationTestCase2<AddItemActivity> {
-
+	
 	private void assertErrorVisibility(int vis) {
 		assertEquals(vis, getActivity().findViewById(R.id.notFoundError)
 				.getVisibility());
@@ -47,7 +47,7 @@ ActivityInstrumentationTestCase2<AddItemActivity> {
 
 		public void addItem(Item item) {
 			//if(!this.testItem.equals(item))
-			if(this.testItem.getIncident_id() == item.getIncident_id())
+			if(!(this.testItem.getIncident_id() == item.getIncident_id()))
 				fail("item not equal to test item");
 		}
 
