@@ -17,16 +17,21 @@ import edu.gatech.oad.fullhouse.findmystuff.view.AddItemActivity;
 public class AddItemPresenterTest extends
 ActivityInstrumentationTestCase2<AddItemActivity> {
 	
-	private void assertErrorVisibility(int vis) {
-		assertEquals(vis, getActivity().findViewById(R.id.notFoundError)
-				.getVisibility());
+	private void assertIsFinishing() {
+		assertTrue(getActivity().isFinishing());
 	}
 	
 	public AddItemPresenterTest() {
 		super(AddItemActivity.class);
 	}
 
-	private void assertAddItem(Item testItem) {
+	private void assertAddItem(Item expected, Item actual) {
+		assertEquals(expected.getName(), actual.getName());
+		assertEquals(expected.getStatus(), actual.getStatus());
+		assertEquals(expected.getCategory(), actual.getCategory());
+		assertEquals(expected.getIncident_id(), actual.getIncident_id());
+		
+		/*
 		assertEquals(testItem.getName(), ((TextView) getActivity()
 				.findViewById(R.id.addItemNameField)).getText());
 		assertEquals(testItem.getStatus(), ((TextView) getActivity()
@@ -35,20 +40,22 @@ ActivityInstrumentationTestCase2<AddItemActivity> {
 				.findViewById(R.id.addItemCategoryField)).getSelectedItem().toString());
 		assertEquals(testItem.getIncident_id(),((Spinner) getActivity()
 				.findViewById(R.id.addItemIncident)).getSelectedItem().toString());
+		*/
 	}
 	
 	private class TestItemAccessor implements ItemAccessor {
 		
 		private Item testItem;
 		
-		public TestItemAccessor(Item testItem) {
-			this.testItem = testItem;
-		}
+		//public TestItemAccessor(Item testItem) {
+		//	this.testItem = testItem;
+		//}
 
 		public void addItem(Item item) {
+			testItem = item;
 			//if(!this.testItem.equals(item))
-			if(!(this.testItem.getIncident_id() == item.getIncident_id()))
-				fail("item not equal to test item");
+			//if(!(this.testItem.getIncident_id() == item.getIncident_id()))
+			//	fail("item not equal to test item");
 		}
 
 		public List<Item> getItemsForIncident(Incident incident) {
@@ -97,8 +104,9 @@ ActivityInstrumentationTestCase2<AddItemActivity> {
 		AddItemActivity activity = getActivity();
 		assertNotNull(activity);
 		final Item testItem = getTestItem();
+		TestItemAccessor accessor = new TestItemAccessor();
 		final AddItemPresenter presenter = new AddItemPresenter(activity,
-				new TestItemAccessor(testItem));
+				accessor);
 		runTestOnUiThread(new Runnable() {
 
 			public void run() {
@@ -107,16 +115,17 @@ ActivityInstrumentationTestCase2<AddItemActivity> {
 
 		});
 		Thread.sleep(1000);
-		assertErrorVisibility(View.VISIBLE);
-		assertAddItem(testItem);
+		assertIsFinishing();
+		assertAddItem(testItem, accessor.testItem);
 	}
 	
 	public void testAddItemFailed() throws Throwable {
 		AddItemActivity activity = getActivity();
 		assertNotNull(activity);
 		final Item testItem = getTestItem2(800);
+		TestItemAccessor accessor = new TestItemAccessor();
 		final AddItemPresenter presenter = new AddItemPresenter(activity,
-				new TestItemAccessor(testItem));
+				accessor);
 		runTestOnUiThread(new Runnable() {
 
 			public void run() {
@@ -125,8 +134,8 @@ ActivityInstrumentationTestCase2<AddItemActivity> {
 
 		});
 		Thread.sleep(1000);
-		assertErrorVisibility(View.VISIBLE);
-		assertAddItem(testItem);
+		assertIsFinishing();
+		assertAddItem(testItem, accessor.testItem);
 	}
 	
 
